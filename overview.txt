@@ -1,0 +1,4 @@
+
+
+This is the cable service project, running on Django and a database TBD. This is our
+development repository,
