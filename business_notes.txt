@@ -1,1 +1,14 @@
 This document will contain all business related notes as it pertains to development
+
+DirectTV:
+Affiliate program on CJ.
+Last updated special terms and service 2006.
+Technically do not allow direct paid search but companies like whitefence.com work around this by creating another site
+with a landing page that forwards them to whitefence.com. Also, we can negotiate better terms once we gain
+some traction with them. $110 / activation
+
+Dish:
+Seems easy to get affiliate links through Saveology, $120-150 / activation based on performance.
+
+
+
