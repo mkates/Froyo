@@ -1,5 +1,4 @@
 This document will contain all business related notes as it pertains to development
-<<<<<<< HEAD
 
 DirectTV:
 Affiliate program on CJ.
@@ -11,7 +10,3 @@ some traction with them. $110 / activation
 Dish:
 Seems easy to get affiliate links through Saveology, $120-150 / activation based on performance.
 
-
-
-=======
->>>>>>> business noted updated
