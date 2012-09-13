@@ -19,21 +19,32 @@ class Package(models.Model):
 	company = models.ForeignKey(Company)
 	name = models.CharField(max_length=200)
 	service = models.CharField(choices=SERVICE_TYPES, max_length = 1)
-
-class SatellitePackage(models.Model):
-	name = models.CharField(max_length=100)
-	basePrice = models.FloatField()
-	promotions = models.ManyToManyField(Promotion)
 	
+class SatellitePackage(models.Model):
+	#BASIC INFO
+	name = models.CharField(max_length=100)
+	Price = models.FloatField()
+	originalPrice = models.FloatField()
+	
+	#CHANNEL INFO
 	totalChannels =  models.IntegerField()
 	channels = models.ManyToManyField(Channel)
+	
+	#COSTS
 	costInitial = models.FloatField()
 	onlineOrderSavings = models.IntegerField()
+	promotions = models.ManyToManyField(Promotion)
+	cancellationFee = models.FloatField()	 
 	
-#UNUSED CLASSES RIGHT NOW
+	#BOX FEES
+	
+	
+	
+	
+#The User
 class User(models.Model):
 	address = models.CharField(max_length=200, null=True)
-	zipcode = models.IntegerField(length=5, null=True)
+	zipcode = models.IntegerField(max_length=5, null=True)
 	latitude = models.FloatField(null=True)
 	longitude = models.FloatField(null=True)
 	
@@ -45,6 +56,17 @@ class User(models.Model):
 						('p','phone'),
 						('i','internet'))
 	services = models.CharField(choices=SERVICES_WANTED, max_length = 3)
+
+#Question Class
+#Eventually make this one to many field
+class Question(models.Model):
+	question = models.CharField(max_length=500)
+	answer1 = models.CharField(max_length=200, null=True)
+	answer2 = models.CharField(max_length=200, null=True)
+	answer3 = models.CharField(max_length=200, null=True)
+	answer4 = models.CharField(max_length=200, null=True)
+	
+	
 	
 	
 	

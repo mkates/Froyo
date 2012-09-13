@@ -1,14 +1,41 @@
 from django.shortcuts import render_to_response
 from cablefinder.models import *
 from django.template import RequestContext
+from django.http import HttpResponse
 import urllib
-import simplejson
+from django.utils import simplejson
 
 
 
 def index(request):
-	print search("07722","10 Pacer Court")
 	return render_to_response('index.html',context_instance=RequestContext(request))
+
+#Simple form submission
+def browse(request):
+	if request.method == 'GET':
+		zipcode = request.GET['zipcode']
+		address = request.GET['address']
+		service = ['tv','phone','internet']
+		services = []
+		for s in service:
+			if s in request.GET:
+				services.append(s)		
+		results = search(zipcode,address)
+		#results = []
+		return render_to_response('browse.html',{"results":results,"services":services},context_instance=RequestContext(request))
+	else:
+		return render_to_response('browse.html')
+
+def question(request):
+	print "hee"
+	return HttpResponse(json, mimetype='application/javascript')
+
+
+
+
+
+
+
 
 #Yahoo Search Parameters
 APP_ID = "V7xEqm32"
@@ -30,15 +57,16 @@ def search(zipcode,address):
 	except:
 		return "Error"
 	try:
-		#National Broadband API Call for wireless
-		string = "http://www.broadbandmap.gov/broadbandmap/broadband/jun2011/wireless?"
+		#National Broadband API Call for wireline
+		string = "http://www.broadbandmap.gov/broadbandmap/broadband/jun2011/wireline?"
 		params = urllib.urlencode({"latitude":latitude,"longitude":longitude,"format":"json"})
 		result = simplejson.load(urllib.urlopen(string+params))
-		result = result['Results']['wirelessServices']
+		result = result['Results']['wirelineServices']
+		print result
 		companies = []
 		for i in result:
 			if i != None:
-				companies.append(i["doingBusinessAs"])
+				companies.append([i["holdingCompanyName"],i['technologies'][0]['maximumAdvertisedDownloadSpeed']])
 		return companies
 	except:
 		return "Error"

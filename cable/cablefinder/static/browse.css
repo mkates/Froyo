@@ -1,0 +1,90 @@
+.intro .inner {
+	margin-top: -250px;
+	height: 250px;
+}
+.intro .inner_bg {
+	height: 250px;
+}
+.banner_inner {
+	text-align: right;
+	color: #e9e9e9;
+}
+.banner_inner p {
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+.banner_inner p span {
+	color: #dfedf1;
+	font-size: 10px;
+}
+.banner_inner p span:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+.question_box {
+	width: 700px;
+	float: left;
+	/* border: 1px solid yellow; */
+}
+.question_box .next {
+	float: right;
+	margin: 5px 80px;
+}
+
+.question_box .previous {
+	margin: 5px 0px 0px 80px;
+}
+.question_box h1{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	color: white;
+	font-weight: 100;
+	font-size: 22px;
+	font: 200 22px "HelveticaNeue","Helvetica Neue",calibri,arial,sans-serif
+}
+.question_container {
+	background: #efefef url("http://subtlepatterns.com/patterns/extra_clean_paper.png");
+	width: 500px;
+	margin:0 auto;
+	border-radius: 10px;
+	padding: 15px 20px;
+	
+	
+}
+.question_container h2 {
+	color: #777777;
+	font-size: 14px;
+	font-weight: 700;
+	padding-bottom: 10px;
+}
+.question_container p {
+	margin-left: 20px;
+	padding: 2px 0;
+	color: #333333;
+	font-weight: 700;
+}
+	
+.question_container .option:hover {
+	background: #d5d5d5;
+	cursor: pointer;
+}
+
+
+
+
+
+
+.options {
+	padding-top: 20px;
+	float: right;
+	width: 200px;
+	/* border: 1px solid red; */
+	text-align: right;
+}
+
+.options a {
+	opacity: .8;
+	margin: 5px 20px;
+}

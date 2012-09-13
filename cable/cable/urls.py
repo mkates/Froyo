@@ -10,7 +10,8 @@ urlpatterns = patterns('cablefinder.views',
     #url(r'^cable/', include('cable.foo.urls')),
 	
 	url(r'^$', 'index'),
-    
+	url(r'^browse$', 'browse'),
+	url(r'^question/$','question'),
     #url(r'^polls/(?P<poll_id>\d+)/$', 'polls.views.detail'),
     #url(r'^polls/(?P<poll_id>\d+)/results/$', 'polls.views.results'),
     #url(r'^polls/(?P<poll_id>\d+)/vote/$', 'polls.views.vote'),

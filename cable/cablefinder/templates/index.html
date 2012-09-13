@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-
+	<link href="{{STATIC_URL}}main.css" rel="stylesheet" type="text/css" />
+	<link href="{{STATIC_URL}}index.css" rel="stylesheet" type="text/css" />
+	
+	 <!--Javascript-->
+    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript" ></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-button.js" type="text/javascript"></script>
+	<link href="{{STATIC_URL}}bootstrap.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
-Home-Page
+<div class="header">
+</div>
+<div class="banner">
+
+</div>
+<div class="intro">
+	<div class="banner_inner">
+	
+	</div>
+	<div class="inner_bg">
+		
+	</div>
+	<div class="inner">
+		<div class="search">
+			<form class="searchform" action="browse" method="GET">
+				<h3>Zipcode</h3>
+				<input class="text" type="text" name="zipcode" id="zip" placeholder="Zipcode"/>
+				<h3> Address</h3>
+				<input class="text" type="text" name="address" id="address" placeholder="Street Address" />
+				<h3> Services Needed </h3>
+				<input type="checkbox" name="tv" class="tv" /> TV
+				<input type="checkbox" name="phone"  /> Phone
+				<input type="checkbox" name="internet"/> Internet
+				<button class="btn btn-success" type="submit">Find Savings</button>
+				
+			</form>
+		</div>
+		<h1>Home Service Search Simplified</h1>
+		<h2> Cut through the promotions, fluff, and complexity of internet, tv, and phone options. See
+		all your options and let us guide you to the best package for your needs. The best part? It's 100% free!</h2>
+	</div>
+</div>
 
 
+<div class="footer">
+	
+</div>
 
 
 </body>
