@@ -12,105 +12,167 @@ li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{
     text-decoration: none;
     font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif
 }
+html {
+	background:url("http://cdn4.kayak.com/v492116/images/background.png") repeat scroll 0 0 #585858;
+	color: #999;
+}
 body {
-	background: #efefef url("http://subtlepatterns.com/patterns/extra_clean_paper.png");
+	background: url("http://cdn1.kayak.com/v492126/images/background-top-shadow.png") repeat-x scroll 0 0 transparent;
+	min-height: 300px;
 }
 
 .header {
-	height: 80px;
-	background: white;
-	width: 100%;
+	width:100%
+	margin: 0 auto;
+	height: 100px;
+}
+
+.footer {
+	width: 980px;
+	margin: 50px auto 10px auto;
+}
+.footer p {
+	text-align: center;
+	padding-bottom: 5px;
+	font-size: 11px;
+}
+.logo {
+	font-size: 36px;
+	padding-top: 40px;
+	float: left;
+}
+.header_container {
+	width: 980px;
 	margin: 0 auto;
 }
-
-.banner {
-	margin-top: 0px;
-	width: 100%;
-	height: 30px;
-	position: relative;
-	z-index: -999;
-	/* IE10 Consumer Preview */ 
-	background-image: -ms-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* Mozilla Firefox */ 
-	background-image: -moz-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* Opera */ 
-	background-image: -o-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #372266), color-stop(1, #007FBA));
-	
-	/* Webkit (Chrome 11+) */ 
-	background-image: -webkit-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* W3C Markup, IE10 Release Preview */ 
-	background-image: linear-gradient(to bottom right, #372266 0%, #007FBA 100%);
+.progress {
+	width: 650px;
+	height: 60px;
+	float: right;
+	color: #777;
+	margin-top: 20px;
 }
+.progress .step {
+	width: 130px;
+	height: 60px;
+	margin-left: 30px;
+	float: left;
+}
+.progress .number {
+	font-size: 35px;
+	line-height: 60px;
+	float: left;
+}
+.progress .text {
+	float: left;
+	padding-top: 17px;
+	padding-left: 5px;
+}
+.progress .text h3{
+	font-size: 9px;
+	line-height: 9px;
+}
+.progress .text h4{
+	font-size: 14px;
+}
+.progress .arrow{
+	float: right;
+	padding-top: 20px;
+	font-size: 20px;
+	font-family: "times";
+}
+.progress-number-active {
+	color: #d2801e;
+}
+.progress-text-active {
+	color: #eee;
+}
+
 .content {
-	width: 100%;
-	background: #efefef;
-}
-.intro {
-	width: 1100px;
-	position: relative;
-	z-index: 0;
-	margin: -40px auto 0 auto;
-	background: #efefef url("http://subtlepatterns.com/patterns/extra_clean_paper.png");
-}
-.banner_inner {
-	width: 1100px;
-	height: 35px;
-	background: blue;
-		/* IE10 Consumer Preview */ 
-	background-image: -ms-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* Mozilla Firefox */ 
-	background-image: -moz-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* Opera */ 
-	background-image: -o-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #372266), color-stop(1, #007FBA));
-	
-	/* Webkit (Chrome 11+) */ 
-	background-image: -webkit-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* W3C Markup, IE10 Release Preview */ 
-	background-image: linear-gradient(to bottom right, #372266 0%, #007FBA 100%);
+	width: 980px;
+	margin: 0 auto;
+	border:1px solid #777;
+	box-shadow: 0px 0px 2px #eee;
+	height: 400px;
+	border-radius: 15px;
+	background: #eee;
+	background-image: url("{{STATIC_URL}}tv2.png");
 }
 
-.intro .inner_bg {
-	width: 1100px;
-	height: 295px;
-	opacity: .5;
-	border-bottom-right-radius:5px;
-	border-bottom-left-radius:5px;
-	box-shadow: 0 0 3px #999;
-		/* IE10 Consumer Preview */ 
-	background-image: -ms-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* Mozilla Firefox */ 
-	background-image: -moz-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* Opera */ 
-	background-image: -o-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #372266), color-stop(1, #007FBA));
-	
-	/* Webkit (Chrome 11+) */ 
-	background-image: -webkit-linear-gradient(top left, #372266 0%, #007FBA 100%);
-	
-	/* W3C Markup, IE10 Release Preview */ 
-	background-image: linear-gradient(to bottom right, #372266 0%, #007FBA 100%);
+h1 {
+    color: #777;
+    font-size: 45px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    margin-top: 60px;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: 0 1px 1px #333;
+}
+h1 .orange{
+    color: #d98e3e;
+    font-size: 45px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    margin-top: 60px;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: 0 1px 1px #333;
+}
+h1 .green{
+    color: #4dab30;
+    font-size: 45px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    margin-top: 60px;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: 0 1px 1px #333;
 }
 
-.intro .inner {
-	height: 295px;
-	margin-top: -295px;
-	width: 1100px;
-	position: relative;
-	z-index: 1;
+h2 {
+	font-size: 16px;
+	line-height: 30px;
+	width: 800px;
+	padding: 20px 0;
+	margin: 0px auto;
+	text-align: center;
+}
+.action {
+	width: 300px;
+	margin: 40px auto 0 auto;
+
+}
+.searchform .text {
+	width: 230px;
+	border: 1px solid #999;
+	height: 50px;
+	padding: 0;
+	margin: 0 auto;
+	font-size: 30px;
+	padding-left: 40px;
+	color: #999
+}
+.searchform .submit {
+	padding: 0;
+	margin: 0 auto;
+	font-size: 18px;
+	
+	border: 1px solid #999;
+	height: 50px;
+	width: 180px;
+	background-color: hsl(38, 100%, 48%) !important;
+	 background-repeat: repeat-x;
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffbf51", endColorstr="#f49b00");
+	   background-image: -khtml-gradient(linear, left top, left bottom, from(#ffbf51), to(#f49b00));
+	    background-image: -moz-linear-gradient(top, #ffbf51, #f49b00);
+	     background-image: -ms-linear-gradient(top, #ffbf51, #f49b00); 
+	     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffbf51), color-stop(100%, #f49b00));
+	      background-image: -webkit-linear-gradient(top, #ffbf51, #f49b00); 
+	      background-image: -o-linear-gradient(top, #ffbf51, #f49b00);
+	       background-image: linear-gradient(#ffbf51, #f49b00); 
+	       border-color: #f49b00 #f49b00 hsl(38, 100%, 43.5%);
+	        color: #333 !important; 
+	        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.29);
+	         -webkit-font-smoothing: antialiased; }
 }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>BundleMagic</title>
+	<meta name="description" content="Find and compare cheap cable, satellite, phone, and internet providers with BundleMagic.com. Search hundreds of home service packages at once.">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+	<!--Javascript-->
+    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript" ></script>
+    
+    <!--CSS-->
+	<link href="{{STATIC_URL}}main.css" rel="stylesheet" type="text/css" />
+	
+	<!--Additional page specific external files -->
+    {% block headerlink %}{% endblock%}
+</head>
+
+<body> 
+
+{% block header %}
+<div class="header">
+	<div class="header_container">
+		<div class="logo">
+			BUNDLE MAGIC
+		</div>
+		<div class="progress">
+			<div class="step">
+				<div class="number {%block step1number%}{%endblock%}">1</div>
+				<div class="text {%block step1text%}{%endblock%}">
+					<h3>FIND YOUR</h3>
+					<h4>PROVIDERS</h4>
+				</div>
+				<div class="arrow">></div>
+			</div>
+			<div style="width:150px" class="step">
+				<div class="number {%block step2number%}{%endblock%}">2</div>
+				<div class="text {%block step2text%}{%endblock%}">
+					<h3>CHOOSE YOUR</h3>
+					<h4>PREFERENCES</h4>
+				</div>
+				<div class="arrow">></div>
+			</div>
+			<div style="width:125px" class="step">
+				<div class="number {%block step3number%}{%endblock%}">3</div>
+				<div class="text {%block step3text%}{%endblock%}">
+					<h3>SELECT A</h3>
+					<h4>PACKAGE</h4>
+				</div>
+				<div class="arrow">></div>
+			</div>
+			<div style="width:125px" class="step">
+				<div class="number {%block step4number%}{%endblock%}">4</div>
+				<div class="text {%block step4text%}{%endblock%}">
+					<h3>PURCHASE YOUR</h3>
+					<h4>SELECTION</h4>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div><!--Header-->
+{% endblock%}
+
+{% block content %}
+
+
+{% endblock %}
+
+{% block footer %}
+<div class="footer">
+	<p> The Bundle Magic service is offered as a completely free service, with no obligation to use or purchase any products with our affiliates </p>
+	<p> &copy; 2012 Bundlemagic.com</p> 
+
+</div><!--Footer-->
+{% endblock %}
+
+</body>
+</html>

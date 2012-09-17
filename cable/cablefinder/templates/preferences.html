@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block headerlink%}
+<link href="{{STATIC_URL}}findpackage.css" rel="stylesheet" type="text/css" />
+<script>
+//This class stores all the question answers
+var Prefs = function Prefs() {
+	var zipcode = '12345';
+	var answers = [0,0,0,0,0];
+	
+	this.getanswer = function(question) {
+		return answers[question];
+	}
+	this.setanswer = function(question,answer) {
+		answers[question] = answer;
+	}
+	this.getallanswers = function() {
+		return answers;
+	}
+}
+
+$(document).ready(function() {
+	var test = new Prefs();
+	var currentquestion = 0;
+	$(".question .answer_container p").click(function() {
+		//Update selection CSS
+		$(this).parent().children().removeClass("selected");
+		$(this).addClass("selected");
+		//Get handler for question's div
+		var question = $(this).parent().parent();
+		//Find next question number
+		var questionNumber = $(question).attr('id');
+		questionNumber = parseInt(questionNumber.charAt(questionNumber.length-1));
+		nextquestion = questionNumber + 1;
+		//Update Prefs
+		var answer = $(this).attr('id').charAt(2);
+		test.setanswer(questionNumber,answer);
+		//Transition to next question
+		$(question).fadeOut('fast',function() {
+			$("#question"+nextquestion).fadeIn();
+			currentquestion = nextquestion;
+		});
+		$("#answerarray").html("<p>"+test.getallanswers()+"</p>");
+	});
+	$(".back").click(function() {
+		if (currentquestion != 0) {
+			previousQuestion = currentquestion - 1;
+			//Transition to next question
+			$("#question"+currentquestion).fadeOut('fast',function() {
+				$("#question"+previousQuestion).fadeIn();
+				currentquestion = previousQuestion;
+			});
+		}
+	});
+	
+});
+</script>
+<style>
+.content {
+	width: 980px;
+	background: white;
+	height: 300px;
+
+}
+.progressbar {
+	width: 920px;
+	margin: 20px;
+	height: 20px;
+	background: blue;
+}
+.summary {
+	float: right;
+	width: 180px;
+	height: 200px;
+	margin-right: 40px;
+	background: #ddd;
+}
+.question {
+	width: 600px;
+}
+#question1 {
+	display: none;
+}
+#question2 {
+	display: none;
+}
+.selected {
+	background: red;
+}
+
+</style>
+{% endblock %}
+{%block step2number%}progress-number-active{%endblock%}
+{%block step2text%}progress-text-active{%endblock%}
+{% block content %}
+	<div class="content">
+		<div class="progressbar">
+			ProgressBAR
+		</div>
+		<div class="summary">
+			<p>Your Selections</p>
+			<p id="answerarray"></p>
+		</div>
+		<div id="question0" class="question">
+			<div class="question_text">What is the primary use of your home telephone?</div>
+			<div class="answer_container">
+				<p id="0_0"> Local Calls </p>
+				<p id="0_1"> International Calls </p>
+				<p id="0_2"> Strictly emergencies </p>
+				<p id="0_3"> I use cell phone to make all my calls </p>
+			</div>
+		</div>
+		<div id="question1" class="question">
+			<div class="question_text">What is the primary use of your home telephone?</div>
+			<div class="answer_container">
+				<p id="1_0"> Local Calls </p>
+				<p id="1_1"> International Calls </p>
+				<p id="1_2"> Strictly emergencies </p>
+				<p id="1_3"> I use cell phone to make all my calls </p>
+			</div>
+		</div>
+		<div id="question2" class="question">
+			<div class="question_text">Are you interested in VOIP options?</div>
+			<div class="answer_container">
+				<p id="2_0"> Yes, definitely </p>
+				<p id="2_1"> Not sure</p>
+				<p id="2_2"> No way jose </p>
+			</div>
+		</div>
+		<div class="back"> Go Back </div>
+		<div class="forward"> Go Forward </div>
+	</div>
+{% endblock %}
+	
+	
+	

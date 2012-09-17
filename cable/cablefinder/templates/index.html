@@ -1,54 +1,63 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-	<link href="{{STATIC_URL}}main.css" rel="stylesheet" type="text/css" />
-	<link href="{{STATIC_URL}}index.css" rel="stylesheet" type="text/css" />
-	
-	 <!--Javascript-->
-    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript" ></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-button.js" type="text/javascript"></script>
-	<link href="{{STATIC_URL}}bootstrap.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
+{% extends "base.html" %}
 
-<div class="header">
-</div>
-<div class="banner">
+{%block step1number%}progress-number-active{%endblock%}
+{%block step1text%}progress-text-active{%endblock%}
 
-</div>
-<div class="intro">
-	<div class="banner_inner">
-	
-	</div>
-	<div class="inner_bg">
-		
-	</div>
-	<div class="inner">
-		<div class="search">
-			<form class="searchform" action="browse" method="GET">
-				<h3>Zipcode</h3>
-				<input class="text" type="text" name="zipcode" id="zip" placeholder="Zipcode"/>
-				<h3> Address</h3>
-				<input class="text" type="text" name="address" id="address" placeholder="Street Address" />
-				<h3> Services Needed </h3>
-				<input type="checkbox" name="tv" class="tv" /> TV
-				<input type="checkbox" name="phone"  /> Phone
-				<input type="checkbox" name="internet"/> Internet
-				<button class="btn btn-success" type="submit">Find Savings</button>
-				
+{% block headerlink %}
+	<script>
+		$(document).ready(function() {
+			$("#zip").blur(function() {
+				if ($(this).val().length === 5) {
+					$(this).addClass("success")
+					$(this).removeClass("incomplete")
+				} else {
+					$(this).addClass("incomplete")
+					$(this).removeClass("success")
+				}
+			});
+		});
+	</script>
+	<style>
+		.success {
+			border: 2px solid green;
+		}
+		.incomplete {
+			border: 2px solid red;
+		}
+		.partners {
+			width: 950px;
+			margin: 20px auto;
+		}
+		.partners img {
+			width: 70px;
+			margin: 0 15px;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+	<div class="content">
+		<h1>Connect your home and save money</h1>
+		<h2> Search, compare, and find the best satellit tv, cable, phone, and internet options in your area.
+		Create custom packages and find the best savings.</h2>
+		<div class="action">
+			<form class="searchform" action="preferences" method="GET">
+				<input class="text" type="text" maxlength="5" name="zipcode" id="zip" placeholder="Zipcode"/>
+				<input class="submit" type="Submit" value="Find Deals"/>
 			</form>
 		</div>
-		<h1>Home Service Search Simplified</h1>
-		<h2> Cut through the promotions, fluff, and complexity of internet, tv, and phone options. See
-		all your options and let us guide you to the best package for your needs. The best part? It's 100% free!</h2>
 	</div>
-</div>
-
-
-<div class="footer">
 	
-</div>
-
-
-</body>
-</html>
+	<div class="partners">
+		<img src="{{STATIC_URL}}images/logo/directv.png"/>
+		<img src="{{STATIC_URL}}images/logo/dish.png"/>
+		<img src="{{STATIC_URL}}images/logo/comcast.png"/>
+		<img src="{{STATIC_URL}}images/logo/verizon.png"/>
+		<img src="{{STATIC_URL}}images/logo/cox.png"/>
+		<img src="{{STATIC_URL}}images/logo/centurylink.png"/>
+		<img src="{{STATIC_URL}}images/logo/charter.png"/>
+		<img src="{{STATIC_URL}}images/logo/optimum.png"/>
+		<img src="{{STATIC_URL}}images/logo/twc.png"/>
+	
+	</div>
+{% endblock %}
