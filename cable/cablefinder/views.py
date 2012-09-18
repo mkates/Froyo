@@ -27,9 +27,7 @@ def preferences(request):
 			elements["longitude"] = request.GET['longitude']
 	return render_to_response('preferences.html',elements,context_instance=RequestContext(request))
 	
-	
-	
-#Step 3 find package page, passing in zipcode + lat and long
+#Step 3 load package page data in GET
 def findpackage(request):
 	return render_to_response('findpackage.html',context_instance=RequestContext(request))
 #Step 4 purchase package

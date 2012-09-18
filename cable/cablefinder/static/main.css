@@ -10,7 +10,7 @@ li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{
     vertical-align:baseline;
     background:transparent;
     text-decoration: none;
-    font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif
+    font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
 }
 html {
 	background:url("http://cdn4.kayak.com/v492116/images/background.png") repeat scroll 0 0 #585858;
@@ -45,37 +45,37 @@ body {
 	width: 980px;
 	margin: 0 auto;
 }
-.progress {
+.progress_step {
 	width: 650px;
 	height: 60px;
 	float: right;
 	color: #777;
 	margin-top: 20px;
 }
-.progress .step {
+.progress_step .step {
 	width: 130px;
 	height: 60px;
 	margin-left: 30px;
 	float: left;
 }
-.progress .number {
+.progress_step .number {
 	font-size: 35px;
 	line-height: 60px;
 	float: left;
 }
-.progress .text {
+.progress_step .text {
 	float: left;
 	padding-top: 17px;
 	padding-left: 5px;
 }
-.progress .text h3{
+.progress_step .text h3{
 	font-size: 9px;
 	line-height: 9px;
 }
-.progress .text h4{
+.progress_step .text h4{
 	font-size: 14px;
 }
-.progress .arrow{
+.progress_step .arrow{
 	float: right;
 	padding-top: 20px;
 	font-size: 20px;
@@ -143,36 +143,4 @@ h2 {
 	margin: 40px auto 0 auto;
 
 }
-.searchform .text {
-	width: 230px;
-	border: 1px solid #999;
-	height: 50px;
-	padding: 0;
-	margin: 0 auto;
-	font-size: 30px;
-	padding-left: 40px;
-	color: #999
-}
-.searchform .submit {
-	padding: 0;
-	margin: 0 auto;
-	font-size: 18px;
-	
-	border: 1px solid #999;
-	height: 50px;
-	width: 180px;
-	background-color: hsl(38, 100%, 48%) !important;
-	 background-repeat: repeat-x;
-	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffbf51", endColorstr="#f49b00");
-	   background-image: -khtml-gradient(linear, left top, left bottom, from(#ffbf51), to(#f49b00));
-	    background-image: -moz-linear-gradient(top, #ffbf51, #f49b00);
-	     background-image: -ms-linear-gradient(top, #ffbf51, #f49b00); 
-	     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffbf51), color-stop(100%, #f49b00));
-	      background-image: -webkit-linear-gradient(top, #ffbf51, #f49b00); 
-	      background-image: -o-linear-gradient(top, #ffbf51, #f49b00);
-	       background-image: linear-gradient(#ffbf51, #f49b00); 
-	       border-color: #f49b00 #f49b00 hsl(38, 100%, 43.5%);
-	        color: #333 !important; 
-	        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.29);
-	         -webkit-font-smoothing: antialiased; }
-}
+
