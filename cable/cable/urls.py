@@ -1,14 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-
+from django.views.generic.simple import direct_to_template
 admin.autodiscover()
 
 
 urlpatterns = patterns('cablefinder.views',
-    # Examples:
-    # url(r'^$', 'cable.views.home', name='home'),
-    #url(r'^cable/', include('cable.foo.urls')),
-	
+  	#Contact Form URL
+	url(r'^contact$','contact'),
 	url(r'^$', 'index'),
 	#secondary urls
 	url(r'^preferences$','preferences'),

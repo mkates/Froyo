@@ -12,6 +12,9 @@ li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{
     text-decoration: none;
     font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
 }
+.clear  {
+	clear: both;
+}
 html {
 	background:url("http://cdn4.kayak.com/v492116/images/background.png") repeat scroll 0 0 #585858;
 	color: #999;
@@ -40,6 +43,20 @@ body {
 	font-size: 36px;
 	padding-top: 40px;
 	float: left;
+}
+.terms {
+	list-style-type: none;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 5px;
+}
+.terms li {
+	display:inline-block;
+	padding: 0px 5px;
+}
+.terms li:hover {
+	text-decoration: underline;
+	cursor: pointer;
 }
 .header_container {
 	width: 980px;
@@ -93,7 +110,7 @@ body {
 	margin: 0 auto;
 	border:1px solid #777;
 	box-shadow: 0px 0px 2px #eee;
-	height: 400px;
+	min-height: 400px;
 	border-radius: 15px;
 	background: #eee;
 	background-image: url("{{STATIC_URL}}tv2.png");
@@ -143,4 +160,17 @@ h2 {
 	margin: 40px auto 0 auto;
 
 }
+
+.searchform label       {  width: 80px; float: left;display: block; cursor: pointer; line-height: 20px; padding-bottom: 9px; text-shadow: 0 -1px 0 rgba(0,0,0,.2); }
+		.radios     { padding-top: 18px; background: url(divider.png) repeat-x 0 0; }
+		.label_check input,
+		.label_radio input  { margin-right: 5px; }
+		.has-js .label_check,
+		.has-js .label_radio    { padding-left: 34px; }
+		.has-js .label_radio    { background: url("images/checkbox/radio-off.png") no-repeat; }
+		.has-js .label_check    { background: url("images/checkbox/check-off.png") no-repeat; }
+		.has-js label.c_on      { background: url("images/checkbox/check-on.png") no-repeat; }
+		.has-js label.r_on      { background: url("images/checkbox/radio-on.png") no-repeat; }
+		.has-js .label_check input,
+		.has-js .label_radio input  { position: absolute; left: -9999px; }
 

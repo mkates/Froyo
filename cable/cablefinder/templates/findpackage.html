@@ -1,20 +1,433 @@
 {% extends "base.html" %}
-
+{%block step3number%}progress-number-active{%endblock%}
+{%block step3text%}progress-text-active{%endblock%}
 {% block headerlink%}
 <link href="{{STATIC_URL}}findpackage.css" rel="stylesheet" type="text/css" />
 <script>
-	
+//Function to get URL Get Names and Values
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
 
+//New Zip Code All Handled Within the Javascript
+$(document).ready(function() {
+	var urlvars = getUrlVars();
+	var zip = '00000';
+	var prefs = '000000000';
+	if (urlvars['zipcode']) { zip = urlvars['zipcode'] };
+	if (urlvars['prefs']) { prefs = urlvars['prefs'] };
+	$(".changetext").html("Current zipcode is "+zip+" (<span>Change zipcode</span>)");
+	$(".address p span").click(function() {
+		$(".changetext").fadeOut('fast',function() {
+			$(".newzipcode").fadeIn();
+		});
+	});
+	$(".cancelnewzip").click(function() {
+		$(".newzipcode").fadeOut('fast',function() {
+			$(".changetext").fadeIn();
+		});
+	});
+	
+	$(".changezip").click(function() {
+		//Check if input is valid
+		var newzip = $(".address .zipcode").val();
+		valid = true;
+		number = [0,1,2,3,4,5,6,7,8,9]
+		for (var i=0; i < newzip.length; i++) {
+			if (!(newzip[i] in number)) {
+				valid = false;
+			};
+		};
+		if (newzip.length !== 5) {
+			valid = false;
+		}		
+		//Reload this URL with new parameters
+		if (valid) {
+			var url = window.location.href.split("?")[0];
+			url += "?zipcode="+newzip+"&prefs="+prefs;
+			window.location = url;
+		};
+	});
+	
+	//Toggler Functionality
+	$(document).ready(function() {
+		$(".togglebutton").click(function() {
+			var content = $(this).parent().parent().children(".package-bottom-content");
+			if ($(content).css("display")==="none") {
+				$(content).slideToggle('slow');
+				$(".togglebutton").children().html("Hide Details");
+			} else {
+				$(content).slideToggle('slow');
+				$(".togglebutton").children().html("Show Details");
+			}
+		});
+	});
+	
+	//Draw questions based on firstpref
+	//NEED TO FINISH!!!
+	$(document).ready(function() {
+		var urlvars = getUrlVars();
+		var prefs = '0';
+		if (urlvars['prefs']) { prefs = urlvars['prefs'] };
+		var optionsid
+		if (prefs[0] !== '0') {
+			
+		}
+	});
+	
+	
+});
 
 </script>
+<style>
+
+.content {
+	background: #fff;
+}
+.mask {
+	opacity: .3;
+}
+.loader_container {
+	width:450px;
+	height: 100px;
+	position: fixed;
+	z-index:999;
+	top: 190px;
+	background: white;
+	border:3px solid #888;
+	border-radius: 10px;
+	left: 50%;
+	margin-left: -125px;
+	text-align: center;
+}
+.loader_container p {
+	font-size: 22px;
+	font-weight: 900;
+	line-height: 90px;
+	color: #333;
+}
+.find-topbar {
+	height: 47px;
+	width:100%;
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
+	border-bottom: 1px solid #ddd;
+	box-shadow: 0px 1px 4px 1px #ccc;
+	background: #f2f2f2;
+	/* IE10 Consumer Preview */ 
+	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
+	/* Opera */ 
+	background-image: -o-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #F2F2F2));
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
+	/* W3C Markup, IE10 Release Preview */ 
+	background-image: linear-gradient(to bottom, #FFFFFF 0%, #F2F2F2 100%);
+	
+	
+}
+.find-topbar .sorter {
+	float: right;
+	color: #777;
+	margin: 10px 20px 0 0;
+}
+.address {
+	float: left;
+}
+
+.address p {
+	margin: 15px 0 0 10px;
+	color: #777;
+}
+.address .newzipcode {
+	display: none;
+	margin-top: -5px;
+}
+.address .newzipcode p {
+	margin: 5px 10px 0 10px;
+	float: left;
+	color: #777;
+}
+.address .newzipcode input {
+	margin: 0 5px;
+	float: left;
+}
+.address .newzipcode input {
+	float: left;
+}
+.address p span:hover {
+	cursor:pointer;
+	text-decoration: underline;
+}
+.sidebar {
+	width: 180px;
+	padding: 10px 10px 10px 10px;
+	
+	min-height: 200px;
+	float: left;
+	border-right: 1px solid #ccc;
+}
+.sidebar-section {
+	border-bottom: 1px solid #ccc;
+	padding: 0 0 10px 0;
+}
+.sidebar-section h3 {
+	padding-left: 5px;
+	font-size: 16px;
+	text-shadow: none;
+	color: #222;
+	font-weight: 900;
+	margin: 10px 0;
+}
+.sidebar-section p {
+	padding-left: 5px;
+}
+.sorter-sort {
+	margin-left: 5px;
+	width: 170px;
+}
+.sorter-select {
+	margin-left: 5px;
+	width: 170px;
+	/* IE10 Consumer Preview */ 
+	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
+	/* Opera */ 
+	background-image: -o-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #F2F2F2));
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
+	/* W3C Markup, IE10 Release Preview */ 
+	background-image: linear-gradient(to bottom, #FFFFFF 0%, #F2F2F2 100%);
+}
+.sidebar-section label {
+	margin-bottom: 10px;
+	margin-left: 10px;
+	padding-bottom: 1px;
+}	
+
+.nobottomborder {
+	border-bottom: none;
+}
+.mainbar {
+	float:right;
+	width: 739px;
+	padding: 0 20px 20px 20px;
+}
+.package {
+	width: 719px;
+	margin: 20px auto;
+	min-height: 50px;
+}
+.package-top {
+	height: 140px;
+	border:4px solid #fff;
+	position: relative;
+	z-index: 10;
+	padding: 5px;
+	background: #f3f3f3f3;
+	box-shadow: 0px 3px 3px 3px #ddd;
+	/* IE10 Consumer Preview */ 
+	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #F7F7F7 100%);
+	
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #F7F7F7 100%);
+	
+	/* Opera */ 
+	background-image: -o-linear-gradient(top, #FFFFFF 0%, #F7F7F7 100%);
+	
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #F7F7F7));
+	
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #F7F7F7 100%);
+	
+	/* W3C Markup, IE10 Release Preview */ 
+	background-image: linear-gradient(to bottom, #FFFFFF 0%, #F7F7F7 100%);	
+}
+.package-bottom {
+}
+.package-bottom-content {
+	display: none;
+	background: #f2f2f2;
+	border-right: 1px solid #eee;
+	border-left: 1px solid #eee;
+	margin: 0 auto;
+	width: 706px;
+}
+.package-bottom-content-border {
+	border-left:3px solid white;
+	border-right:3px solid white;
+	padding: 10px;
+}
+.bottombar {
+	height: 5px;
+	width: 700px;
+	margin: 0 auto;
+	background: #f2f2f2;
+	border-right: 3px solid white;
+	border-left: 3px solid white;
+	border-bottom: 3px solid white;
+	box-shadow: 0px 2px 2px #ddd;
+}
+.togglebutton {
+	width: 200px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background: #f2f2f2;
+	height: 25px;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: -3px;
+	border-top: 3px solid #f2f2f2;
+	border-right: 3px solid white;
+	border-left: 3px solid white;
+	border-bottom: 3px solid white;
+	box-shadow: 0px 2px 2px #ddd;
+}
+.togglebutton:hover {
+	cursor: pointer;
+}
+.togglebutton p {
+	padding-top: 5px;
+</style>
 {% endblock %}
-{%block step3number%}progress-number-active{%endblock%}
-{%block step3text%}progress-text-active{%endblock%}
 {% block content %}
+<div class="loader_container">
+	<p> Applying Your Choices . . . </p>
+</div>
 <div class="content">
- Results displayed here, 100% GET based using single digit encoding per question in the prefs variable.
- Open all step 4's in a new window
- <a href="/buypackage?pid=1" target="_blank">Package ID 1</a>
+  <div class="find-topbar">
+  		<div class="sorter">
+  			Sort by:
+			<select class="sorter-sort">
+				<option>Match Score</option>
+				<option>Consumer Rank</option>
+				<option>Price - Low to High</option>
+				<option>Price - High to Low</option>
+			</select>
+		</div>
+		
+		<div class="address">
+			<p class="changetext"><p>
+			<div class="newzipcode">
+				<p>Zipcode:</p>
+				<input type="text" class="input-small zipcode" maxlength="5" placeholder="Zipcode">
+				<button class="btn btn-info changezip">Change Zipcode</button>
+				<button class="btn cancelnewzip">Cancel</button>
+				
+			</div>
+		</div>
+  </div>
+  
+	<div class="sidebar">
+		<div class="sidebar-section questions">
+			<h3> Preferences</h3>
+			<p>Number of boxes</p>
+			<select class="sorter-select">
+				<option>Question 1 Answers</option>
+			</select>
+			<p>Number of HD boxes</p>
+			<select class="sorter-select">
+				<option>Question 2 Answers</option>
+			</select>
+			<p>Number of DVR boxes</p>
+			<select class="sorter-select">
+				<option>Question 3 Answers</option>
+			</select>
+			<p>VOIP Preference</p>
+			<select class="sorter-select">
+				<option>Question 4 Answers</option>
+			</select>
+		</div>
+		<div class="sidebar-section questions">
+			<h3> Providers</h3>
+			<label class="label_check" for="checkbox-01"><input name="tv" id="checkbox-01" value="1" type="checkbox" checked /> DirecTV</label>
+			<label class="label_check" for="checkbox-02"><input name="phone" id="checkbox-02" value="1" type="checkbox" checked/> Dish Network</label>
+			<label class="label_check" for="checkbox-03"><input name="internet" id="checkbox-03" value="1" type="checkbox" checked/> Verizon</label>
+			<label class="label_check" for="checkbox-04"><input name="tv2" id="checkbox-04" value="1" type="checkbox" checked /> AT&T</label>
+			<label class="label_check" for="checkbox-05"><input name="phone2" id="checkbox-05" value="1" type="checkbox" checked/> Vonage</label>
+			<label class="label_check" for="checkbox-06"><input name="internet2" id="checkbox-06" value="1" type="checkbox" checked/> Cablevision</label>
+		</div>
+		<div class="sidebar-section questions nobottomborder">
+			<h3>More Filters</h3>
+			<label class="label_check" for="checkbox-100"><input name="tv" id="checkbox-100" value="1" type="checkbox" checked /> Show Hacker Packages</label>
+			<label class="label_check" for="checkbox-101"><input name="phone" id="checkbox-101" value="1" type="checkbox" checked/> Include Tax</label>
+		</div>
+	</div>
+  
+  	<div class="mainbar">
+  		<div class="package">
+  			<div class="package-top">
+  				Results displayed here, 100% GET based using single digit encoding per question in the prefs variable.
+ 				Open all step 4's in a new window
+ 				<a href="/buypackage?pid=1" target="_blank">Package ID 1</a>
+ 
+  			</div>
+  			<div class="package-bottom">
+  				<div class="package-bottom-content">
+  					<div class="package-bottom-content-border">
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+					</div>
+  				</div>
+  				<div class="package-bottom-tab">
+  					<div class="bottombar"></div>
+  					<div class="togglebutton">
+  						<p>Show details</p>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="package">
+  			<div class="package-top">
+  				This is the top package
+  			</div>
+  			<div class="package-bottom">
+  				<div class="package-bottom-content">
+  					<div class="package-bottom-content-border">
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+						<p>COntent</p>
+					</div>
+  				</div>
+  				<div class="package-bottom-tab">
+  					<div class="bottombar"></div>
+  					<div class="togglebutton">
+  						<p>Show details</p>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		
+  		
+  	</div>
+  <div class="clear"></div>
 </div>
 {% endblock %}
 	

@@ -2,10 +2,11 @@ from django.shortcuts import render_to_response
 from cablefinder.models import *
 from django.template import RequestContext
 from django.http import HttpResponse
+from django.utils.html import escape
 import urllib
 from django.utils import simplejson
-
-
+from django.core.mail import send_mail
+from django.shortcuts import render
 #############################################
 # Main Page Call Functions ##################
 #############################################
@@ -34,7 +35,21 @@ def findpackage(request):
 def buypackage(request):
 	return render_to_response('buypackage.html',context_instance=RequestContext(request))
 
-
+def contact(request):
+	if request.method == 'POST':
+		#Escape sanitizes the data
+		name = escape(request.POST['name'])
+		phone = escape(request.POST['phone'])
+		email = escape(request.POST['email'])
+		comments = escape(request.POST['comments'])
+		cf = ContactForm(name,email,phone,comments)
+		cf.save()
+		####ADD FUNCTIONALITY TO SEND EMAILS
+		#subject = phone + email + comments
+		#send_mail("BM Comments", subject, email,['mhkates@gmail.com'], fail_silently=False)
+		return HttpResponse("success");
+	else:
+		return HttpResponse("failed");
 
 
 #############################################

@@ -17,33 +17,7 @@
 			});
 		});
 	</script>
-	<script>
-    function setupLabel() {
-        if ($('.label_check input').length) {
-            $('.label_check').each(function(){ 
-                $(this).removeClass('c_on');
-            });
-            $('.label_check input:checked').each(function(){ 
-                $(this).parent('label').addClass('c_on');
-            });                
-        };
-        if ($('.label_radio input').length) {
-            $('.label_radio').each(function(){ 
-                $(this).removeClass('r_on');
-            });
-            $('.label_radio input:checked').each(function(){ 
-                $(this).parent('label').addClass('r_on');
-            });
-        };
-    };
-    $(document).ready(function(){
-        $('body').addClass('has-js');
-        $('.label_check, .label_radio').click(function(){
-            setupLabel();
-        });
-        setupLabel(); 
-    });
-	</script>
+
 	<style>
 		.success {
 			border: 2px solid green;
@@ -62,18 +36,7 @@
 		.check {
 			background: red;
 		}
-		label       { border:1px solid red; width: 80px; float: left;display: block; cursor: pointer; line-height: 20px; padding-bottom: 9px; text-shadow: 0 -1px 0 rgba(0,0,0,.2); }
-		.radios     { padding-top: 18px; background: url(divider.png) repeat-x 0 0; }
-		.label_check input,
-		.label_radio input  { margin-right: 5px; }
-		.has-js .label_check,
-		.has-js .label_radio    { padding-left: 34px; }
-		.has-js .label_radio    { background: url("{{STATIC_URL}}images/checkbox/radio-off.png") no-repeat; }
-		.has-js .label_check    { background: url("{{STATIC_URL}}images/checkbox/check-off.png") no-repeat; }
-		.has-js label.c_on      { background: url("{{STATIC_URL}}images/checkbox/check-on.png") no-repeat; }
-		.has-js label.r_on      { background: url("{{STATIC_URL}}images/checkbox/radio-on.png") no-repeat; }
-		.has-js .label_check input,
-		.has-js .label_radio input  { position: absolute; left: -9999px; }
+		
 	</style>
 {% endblock %}
 

@@ -1,5 +1,15 @@
 from django.db import models
+from django import forms
+from django.forms import ModelForm
+#################################
+####### Contact Form ############
+#################################
 
+class ContactForm(models.Model):
+	name = models.CharField(max_length=100)
+	email = models.CharField(max_length=200)
+	phone = models.CharField(max_length=200)
+	comments = models.CharField(max_length=1000)
 
 #Company like DirecTV, Dish, etc.
 class Company(models.Model):

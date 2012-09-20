@@ -8,16 +8,271 @@
 	<!--Javascript-->
     <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript" ></script>
     <script src="{{STATIC_URL}}js/bootstrap.min.js" type="text/javascript" ></script>
+    <script src="{{STATIC_URL}}js/custom_check.js" type="text/javascript" ></script>
     
     <!--CSS-->
 	<link href="{{STATIC_URL}}bootstrap.css" rel="stylesheet" type="text/css" />
 	<link href="{{STATIC_URL}}main.css" rel="stylesheet" type="text/css" />
 	
+	<!--Footer Javascript-->
+	<script>
+		$(document).ready(function () {
+			$("#aboutlink").click(function() {
+				$("#modal-about").modal('show');
+			});
+			$("#privacylink").click(function() {
+				$("#modal-pp").modal('show');
+			});
+			$("#contactlink").click(function() {
+				$("#modal-contact").modal('show');
+			});
+			$("#termslink").click(function() {
+				$("#modal-tos").modal('show');
+			});
+			$("#contactform").submit(function() {	
+				if (FormIsValid()) {
+					$("#sendmessage").attr("disabled","disabled");
+					$(".loader").css("display","block");
+					$.ajax({ // create an AJAX call...
+						type: 'POST',
+						data: $(this).serialize(), // get the form data
+						url: $(this).attr('action'), // the file to call
+						success: function(response) { // on success..
+							$(".loader").css("display","none");
+							if (response === "failed") {
+								$(".formresults").html("&#10005; Submission Failed. Resend Message");
+								$(".formresults").css("color","red");
+							} else if (response === "success") {
+								$(".formresults").html("&#x2713; Submission Received");
+								$(".formresults").css("color","green");
+								$("#contactform").find("input[type=text], textarea").val("");
+								$("#contactform input").removeClass("success");
+								$("#contactform textarea").removeClass("success");
+							}
+							$("#sendmessage").removeAttr("disabled");
+						}
+					});
+				} 
+				return false;
+			});
+			$("#contactform #name").blur(function() {
+				var nameblur = ($(this).val().length < 4) ? error(this) : success(this);
+				$(".formresults").html("");
+			});
+			$("#contactform #email").blur(function() {
+				var nameblur = (emailfail($(this).val())) ? error(this) : success(this);
+				$(".formresults").html("");
+			});
+			$("#contactform #phone").blur(function() {
+				var nameblur = ($(this).val().length < 7) ? error(this) : success(this);
+				$(".formresults").html("");
+			});
+			$("#contactform #comments").blur(function() {
+				var nameblur = ($(this).val().length < 3) ? error(this) : success(this);
+				$(".formresults").html("");
+			});
+		});  
+		
+		var error = function error(test) {
+			if ($(test).hasClass("success")) {
+				$(test).removeClass("success");
+			} 
+			if (!($(test).hasClass("error"))) {
+				$(test).addClass("error");
+			} 	
+		}
+		var success = function success(test) {
+			if ($(test).hasClass("error")) {
+				$(test).removeClass("error");
+			} 
+			if (!($(test).hasClass("success"))) {
+				$(test).addClass("success");
+			} 	
+		}
+		var FormIsValid = function FormIsValid() {
+			var form = $("#contactform");		
+			var nameblur = ($("#contactform #name").val().length < 4) ? error("#contactform #name") : success("#contactform #name");
+			var emailblur = (emailfail($("#contactform #email").val())) ? error("#contactform #email") : success("#contactform #email");
+			var phoneblur = ($("#contactform #phone").val().length < 7) ? error("#contactform #phone") : success("#contactform #phone");
+			var commentsblur = ($("#contactform #comments").val().length < 3) ? error("#contactform #comments") : success("#contactform #comments");
+			if ($("#contactform #name").hasClass("success") &&
+					$("#contactform #email").hasClass("success") &&
+						$("#contactform #comments").hasClass("success") &&
+							$("#contactform #phone").hasClass("success")) {
+				return true;
+			} else {
+				$(".formresults").html("&#10005; Oops, you have some invalid fields");
+				$(".formresults").css("color","red");
+				return false;
+			}			
+		}
+		
+		var emailfail = function checkemail(str){
+			var testresults;
+			var filter= /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+			if (filter.test(str)) {
+				testresults=false;
+			} else {
+				testresults=true;
+			}
+			return (testresults)
+     	}
+	</script>
 	<!--Additional page specific external files -->
     {% block headerlink %}{% endblock%}
+    <style>
+    	.modal {
+    		display: none;
+    	}
+    	.modal-header {
+    		height: 30px;
+    		background: #f5f5f5;
+    		border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+    	}
+    	.modal h3 {
+    		line-height: 30px;
+    		font-size: 24px;
+    		color: #444;
+    		text-shadow: 0 0 1px #ccc;
+    	}
+    	.modal-body {
+    		max-height: 350px;
+    	}
+    	.modal-body p {
+    		padding: 5px 0;
+    		color: #888;
+    	}
+    	.contactform textarea {
+    		width: 270px;
+    		max-width: 270px;
+    		height: 150px;
+    		max-height: 270px;
+    	}
+    	.error {
+    		border:1px solid red;
+    	}
+    	.success {
+    		border:1px solid green;
+    	}
+    	.formresults {
+    		padding-top: 5px;
+    		float: left;
+    		font-size: 14px;
+    	}
+    	.loader {
+    		display: none;
+    		float: left;
+    		margin-top: 10px;
+    		margin-left: 10px;
+    	}
+    </style>
 </head>
 
-<body> 
+<body> 	
+  	 <div class="modal" id="modal-about" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">About BundleMagic</h3>
+		</div>
+		<div class="modal-body">
+			<p>SmartAutoSavings helps consumers take control of the car buying process. Just tell us the car you are looking for, and we'll deliver competitive price quotes from dealers in your area. It's fast, simple, and free, and there's no obligation.</p>
+			<p>With multiple dealer quotes to compare, you can be confident that you are getting the best deal possible when you buy.</p>
+			<p>We are networked to accredited auto dealers nationwide, so that we can conduct a comprehensive search of dealer inventory in any local area and provide low price quotes on the new car you want.</p>
+			<p>Why waste hours of your time at car dealerships? Let SmartAutoSavings do the legwork for you.</p>
+			<p>Located north of Boston, our SmartAutoSavings team includes former auto industry executives who have an insider's perspective on how dealers operate. And they believe that the old, traditional car buying process was in need of improvement.</p>
+			<p>SmartAutoSavings helps consumers take control of the car buying process. Just tell us the car you are looking for, and we'll deliver competitive price quotes from dealers in your area. It's fast, simple, and free, and there's no obligation.</p>
+			<p>With multiple dealer quotes to compare, you can be confident that you are getting the best deal possible when you buy.</p>
+			<p>We are networked to accredited auto dealers nationwide, so that we can conduct a comprehensive search of dealer inventory in any local area and provide low price quotes on the new car you want.</p>
+			<p>Why waste hours of your time at car dealerships? Let SmartAutoSavings do the legwork for you.</p>
+			<p>Located north of Boston, our SmartAutoSavings team includes former auto industry executives who have an insider's perspective on how dealers operate. And they believe that the old, traditional car buying process was in need of improvement.</p>
+			<p>With that behind-the-scenes knowledge, our team is committed to bringing consumers a better way to find a new car. With valuable auto industry insight combined with technical expertise, SmartAutoSavings is leading the car buying revolution.</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		</div>
+	</div>
+	
+	<div class="modal" id="modal-pp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Privacy Policy</h3>
+		</div>
+		<div class="modal-body">
+			<p> privacy policy</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		</div>
+	</div>
+	
+	<div class="modal" id="modal-tos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Terms of Use</h3>
+		</div>
+		<div class="modal-body">
+			<p>SmartAutoSavings helps consumers take control of the car buying process. Just tell us the car you are looking for, and we'll deliver competitive price quotes from dealers in your area. It's fast, simple, and free, and there's no obligation.</p>
+			<p>With multiple dealer quotes to compare, you can be confident that you are getting the best deal possible when you buy.</p>
+			<p>We are networked to accredited auto dealers nationwide, so that we can conduct a comprehensive search of dealer inventory in any local area and provide low price quotes on the new car you want.</p>
+			<p>Why waste hours of your time at car dealerships? Let SmartAutoSavings do the legwork for you.</p>
+			<p>Located north of Boston, our SmartAutoSavings team includes former auto industry executives who have an insider's perspective on how dealers operate. And they believe that the old, traditional car buying process was in need of improvement.</p>
+			<p>SmartAutoSavings helps consumers take control of the car buying process. Just tell us the car you are looking for, and we'll deliver competitive price quotes from dealers in your area. It's fast, simple, and free, and there's no obligation.</p>
+			<p>With multiple dealer quotes to compare, you can be confident that you are getting the best deal possible when you buy.</p>
+			<p>We are networked to accredited auto dealers nationwide, so that we can conduct a comprehensive search of dealer inventory in any local area and provide low price quotes on the new car you want.</p>
+			<p>Why waste hours of your time at car dealerships? Let SmartAutoSavings do the legwork for you.</p>
+			<p>Located north of Boston, our SmartAutoSavings team includes former auto industry executives who have an insider's perspective on how dealers operate. And they believe that the old, traditional car buying process was in need of improvement.</p>
+			<p>With that behind-the-scenes knowledge, our team is committed to bringing consumers a better way to find a new car. With valuable auto industry insight combined with technical expertise, SmartAutoSavings is leading the car buying revolution.</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		</div>
+	</div>
+	
+	<div class="modal" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Contact Us</h3>
+		</div>
+		<form class="form-horizontal contactform" id="contactform" method="POST" action="contact">{% csrf_token %}
+		<div class="modal-body">
+				<div class="control-group">
+					<label class="control-label" for="name">Name</label>
+					<div class="controls">
+						<input type="text" id="name" name="name" placeholder="Name">
+					</div>
+				</div>
+			
+				<div class="control-group">
+					<label class="control-label" for="inputEmail">Email</label>
+					<div class="controls">
+						<input type="text" id="email" name="email" placeholder="Email Address">
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="inputPhone">Phone</label>
+					<div class="controls">
+						<input type="text" id="phone" name="phone" placeholder="Phone Number">
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="inputEmail">Comments</label>
+					<div class="controls">
+						<textarea id="comments" name="comments"></textarea>
+					</div>
+				</div>
+		</div>
+		<div class="modal-footer">
+			<div class="loader"><img src="{{STATIC_URL}}images/ajax-loader.gif"/></div>
+			<div class="formresults"></div>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			<input type="submit" value="Send Message" id="sendmessage" class="btn btn-success" >
+		</div>
+		</form>
+	</div>
+
 
 {% block header %}
 <div class="header">
@@ -71,10 +326,16 @@
 {% block footer %}
 <div class="footer">
 	<p> The Bundle Magic service is offered as a completely free service, with no obligation to use or purchase any products with our affiliates </p>
-	<p> &copy; 2012 Bundlemagic.com</p> 
+	<ul class="terms">
+		<li class="footerlink" id="aboutlink">About Us</li> &bull;
+		<li class="footerlink" id="privacylink">Privacy Policy</li> &bull;
+		<li class="footerlink" id="termslink">Terms of Use </li> &bull;
+		<li class="footerlink" id="contactlink">Contact Us</li>
+	</ul>
+	<p> &copy; 2012 Bundlemagic.com. All Rights Reserved.</p> 
 
 </div><!--Footer-->
 {% endblock %}
-
+<script src="https://github.com/twitter/bootstrap/blob/master/js/bootstrap-modal.js" type="text/javascript" ></script>
 </body>
 </html>
