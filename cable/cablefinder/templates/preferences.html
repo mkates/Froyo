@@ -122,10 +122,11 @@ $(document).ready(function() {
 	
 	var progress = function progress(startq,currentq,totalq) {
 		var prog = Math.round(100*((currentq-startq+1)/totalq));
+		var questions_complete = currentq-startq+1
 		var prog_string = prog+"%";
 		console.log(prog_string);
 		$(".progressbar .bar").css("width",prog_string);
-		$(".progressbar .bar").html(prog_string+" complete");
+		$(".progressbar .bar").html(prog_string+" complete ("+questions_complete+"/"+totalq+")");
 	};
 	
 	$(".skipquestions").click(function() {
@@ -180,10 +181,10 @@ background-image: linear-gradient(to top, #FFFFFF 0%, #EEEEEE 100%);
 	background: #ddd;
 }
 .questions{
-	height: 145px;
+	height: 170px;
 }
 .question_container {
-	width: 400px;
+	width: 600px;
 	margin: 30px auto 0 auto;
 }
 
@@ -277,37 +278,60 @@ background-image: linear-gradient(to top, #FFFFFF 0%, #EEEEEE 100%);
 		<div class="question_container">
 			<div class="questions">
 				<div id="question4" class="question">
-				<div class="question_text">What is the primary use of your home telephone?</div>
+				<div class="question_text">What will you primarily use Internet for?</div>
 				<div class="answer_container">
-					<p id="0_0"> Local Calls </p>
-					<p id="0_1"> International Calls </p>
-					<p id="0_2"> Strictly emergencies </p>
-					<p id="0_3"> I use cell phone to make all my calls </p>
+					<p id="0_0">a. Frequent video streaming, large-file sharing, web development </p>
+					<p id="0_1">b. Frequent use of e-mail, websites, social networks, and online shopping.</p>
+					<p id="0_2">c. Mostly just e-mail and occasional web surfing </p>
 				</div>
 			</div>
-				<div id="question5" class="question">
-				<div class="question_text">Can I get your number?</div>
+			<div id="question5" class="question">
+				<div class="question_text">Which of the following best describes what you want in a home phone service?</div>
 				<div class="answer_container">
-					<p id="1_0"> Local Calls </p>
-					<p id="1_1"> International Calls </p>
-					<p id="1_2"> Strictly emergencies </p>
-					<p id="1_3"> I use cell phone to make all my calls </p>
+					<p id="1_0"> a. A premium, full-featured system and unlimited calling.</p>
+					<p id="1_1"> b. A VOIP phone system to make calls through the web.</p>
+					<p id="1_2"> c.	The most cost-effective home phone solution available. </p>
 				</div>
 			</div>
 				<div id="question6" class="question">
-				<div class="question_text">Are you interested in VOIP options?</div>
-				<div class="answer_container">
-					<p id="2_0"> Yes, definitely </p>
-					<p id="2_1"> Not sure</p>
-					<p id="2_2"> No way jose </p>
-				</div>
-			</div>
-				<div id="question7" class="question">
-					<div class="question_text">Are you interested in VOIP options?</div>
+					<div class="question_text">In how many rooms do you estimate you’ll need TV?</div>
 					<div class="answer_container">
-						<p id="2_0"> Yes, definitely </p>
-						<p id="2_1"> Not sure</p>
-						<p id="2_2"> No way jose </p>
+						<p id="2_0"> a. 1 </p>
+						<p id="2_1"> b. 2</p>
+						<p id="2_2"> c. 3 </p>
+						<p id="2_2"> c. 4 </p>
+						<p id="2_2"> c. 5 or more </p>
+					</div>
+				</div>
+				<div id="question7" class="question">
+					<div class="question_text">In how many of those rooms do you plan to use HD TVs? </div>
+					<div class="answer_container">
+						<p id="2_0"> a. 1 </p>
+						<p id="2_1"> b. 2</p>
+						<p id="2_2"> c. 3 </p>
+						<p id="2_2"> c. 4 </p>
+						<p id="2_2"> c. 5 or more </p>
+					</div>
+				</div>
+				<div id="question8" class="question">
+					<div class="question_text">In how many of those rooms do you need DVR (to record live television)?</div>
+					<div class="answer_container">
+						<p id="2_0"> a. 1 </p>
+						<p id="2_1"> b. 2</p>
+						<p id="2_2"> c. 3 </p>
+						<p id="2_2"> c. 4 </p>
+						<p id="2_2"> c. 5 or more </p>
+					</div>
+				</div>
+				<div id="question9" class="question">
+					<div class="question_text">Which of the following programming options are important to you?</div>
+					<div class="answer_container">
+						<input type="checkbox">Sports
+						<input type="checkbox">Movies
+						<input type="checkbox">International/Bilingual
+						<input type="checkbox">On Demand
+						<input type="checkbox">Adult Entertainment
+						
 					</div>
 				</div>
 				<div id="showresults" class="nextbutton"><a class="btn btn-large btn-warning">Show Results</a></div>
