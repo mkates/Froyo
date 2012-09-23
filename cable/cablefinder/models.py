@@ -7,8 +7,8 @@ from django.forms import ModelForm
 
 class ContactForm(models.Model):
 	name = models.CharField(max_length=100)
-	email = models.CharField(max_length=200)
-	phone = models.CharField(max_length=200)
+	email = models.CharField(max_length=100)
+	phone = models.CharField(max_length=20)
 	comments = models.CharField(max_length=1000)
 
 #Company like DirecTV, Dish, etc.

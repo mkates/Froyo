@@ -38,15 +38,18 @@ def buypackage(request):
 def contact(request):
 	if request.method == 'POST':
 		#Escape sanitizes the data
-		name = escape(request.POST['name'])
-		phone = escape(request.POST['phone'])
-		email = escape(request.POST['email'])
-		comments = escape(request.POST['comments'])
-		cf = ContactForm(name,email,phone,comments)
+		name1 = str(escape(request.POST['name']))
+		phone1 = str(escape(request.POST['phone']))
+		email1 = str(escape(request.POST['email']))
+		comments1 = str(escape(request.POST['comments']))
+		cf = ContactForm(name=name1,email=email1,phone=phone1,comments=comments1)
 		cf.save()
-		####ADD FUNCTIONALITY TO SEND EMAILS
-		#subject = phone + email + comments
-		#send_mail("BM Comments", subject, email,['mhkates@gmail.com'], fail_silently=False)
+		####CREATE NEW EMAIL ADDRESS AND PASSWORD TO ENABLE FUNCTIONALITY
+		try:
+			subject = name1 +" "+email1 +" "+phone1+" "+comments1
+			send_mail("BM Comments", subject, email1,['mhkates@gmail.com'], fail_silently=False)
+		except:
+			print "Error sending email to inbox"
 		return HttpResponse("success");
 	else:
 		return HttpResponse("failed");
@@ -78,7 +81,7 @@ def LatLongToWirelineProviders(latandlong):
 	if latandlong:
 		try:
 			#National Broadband API Call for wireline
-			string = "http://www.broadbandmap.gov/broadbandmap/broadband/jun2011/wireline?"
+			string = "http://www.broadbandmap.gov/broadbandmap/broadband/dec2011/wireline?"
 			params = urllib.urlencode({"latitude":latandlong[0],"longitude":latandlong[1],"format":"json"})
 			print params
 			result = simplejson.load(urllib.urlopen(string+params))

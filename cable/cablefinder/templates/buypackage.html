@@ -1,12 +1,99 @@
 {% extends "base.html" %}
-
-{% block headerlink%}
-<link href="{{STATIC_URL}}findpackage.css" rel="stylesheet" type="text/css" />
-{% endblock %}
 {%block step4number%}progress-number-active{%endblock%}
 {%block step4text%}progress-text-active{%endblock%}
+{% block headerlink%}
+<link href="{{STATIC_URL}}findpackage.css" rel="stylesheet" type="text/css" />
+<style>
+.content {
+	background: #fff;
+	min-height: 300px;
+}
+.content h1 {
+	text-align: center;
+	font-size: 26px;
+	color: #444;
+	text-shadow: 0 0 1px #bbb;
+	margin: 30px 0 30px 0;
+	font-weight: bold;
+}
+.content h2  {
+	text-align: center;
+}
+.bestprice {
+	width: 800px;
+	border:1px solid #b2d6b4;
+	border-radius: 8px;
+	height: 50px;
+	margin: 0 auto;
+	padding: 7px 10px 15px 10px;
+	background: #f3f9f4;
+}
+.bestprice img {
+	float: left;
+	padding-right: 20px;
+}
+.bestprice h2 {
+	text-align: left;
+	font-weight: 900;
+	font-size: 14px;
+	color: #206925;
+	padding-bottom: 5px;
+}
+.bestprice h3 {
+	line-height: 17px;
+	color: #777;
+}
+
+.conditions {
+	color: #ccc;
+	text-align: center;
+	padding-bottom: 3px;
+}
+
+.selection_container {
+	width: 820px;
+	margin: 20px auto;
+}
+.selection_container h4 {
+	font-size: 13px;
+	color: #666;
+}
+.selection_container h4 span {
+	font-size: 11px;
+	color: #666;
+}
+.selection {
+	margin: 20px auto;
+	border:6px solid white;
+	box-shadow: 0 0 4px 1px #bbb;
+	background : #fff;
+	height: 50px;
+	min-height: 100px;
+	border-radius: 4px;
+}
+
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="content">
- The Buy Package Page, displaying the selected package based on the GET parameter pid
+ <h1> Woohoo, you are ready to purchase your selection! </h1>
+ <div class="bestprice">
+ 	<img width="50" src="{{STATIC_URL}}images/bestpriceicon.png"/>
+ 	<h2> Best Price Guarantee </h2>
+ 	<h3> Using the buttons and phone numbers here to order ensures you get the best discounts. In some cases, our prices are exclusive to Bundle Magic. If you find a better deal, we'll send you a $500 Amazon Gift Card, no questions asked.* </h3>
+ </div>
+ <div class="selection_container"">
+ 	<h4> Here is the selection you made <span>(you must order each package separately)</span>:</h4>
+ 	<div class="selection">
+ 	
+ 	</div>
+ </div>
+ <div class="conditions">
+ 	*While supplies last. Must submit the better deal URL via email within 3 business days, in which case we will tell you all supplies are out
+ </div>
+
+ <h3> 
 </div>
 {% endblock %}
+

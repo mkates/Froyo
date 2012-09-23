@@ -4,6 +4,7 @@
 {%block step1text%}progress-text-active{%endblock%}
 
 {% block headerlink %}
+	<link href="{{STATIC_URL}}index.css" rel="stylesheet" type="text/css" />
 	<script>
 		$(document).ready(function() {
 			$("#zip").blur(function() {
@@ -37,7 +38,34 @@
 			background: red;
 		}
 		
-	</style>
+		.action {
+			width: 900px;
+			margin: 15px auto 0 auto;
+			text-align: center;
+		}
+		.zipcode {
+			width: 150px;
+			height: 40px;
+			font-size: 24px;
+			letter-spacing: 2px;
+			margin: 0 auto;
+		}
+		.searchform .options {
+			margin: 15px auto;
+			text-align: left;
+			width: 315px;
+		}
+		.searchform label {
+			width: 70px;
+			font-size: 16px;
+		}
+		.searchform .submit_container {
+			clear: both;
+			margin: 20px auto;
+			width: 600px;
+			text-align: center;
+		}
+			</style>
 {% endblock %}
 
 {% block content %}
@@ -47,11 +75,15 @@
 		Create custom packages and find the best savings.</h2>
 		<div class="action">
 			<form class="searchform" action="preferences" method="GET">
-				<input class="text" type="text" maxlength="5" name="zipcode" id="zip" placeholder="Zipcode"/>
-				 	<label class="label_check" for="checkbox-01"><input name="tv" id="checkbox-01" value="1" type="checkbox" checked /> TV</label>
-					<label class="label_check" for="checkbox-02"><input name="phone" id="checkbox-02" value="1" type="checkbox" checked/> Phone</label>
-					<label class="label_check" for="checkbox-03"><input name="internet" id="checkbox-03" value="1" type="checkbox" checked/> Internet</label>
-				 <input class="submit btn btn-large btn-warning" type="Submit" value="Find Deals"/>
+				<input class="text zipcode" type="text" maxlength="5" name="zipcode" id="zip" placeholder="Zipcode"/>
+					<div class="options">
+						<label class="label_check" for="checkbox-01"><input name="tv" id="checkbox-01" value="1" type="checkbox" checked /> TV</label>
+						<label class="label_check" for="checkbox-02"><input name="phone" id="checkbox-02" value="1" type="checkbox" checked/> Phone</label>
+						<label class="label_check" for="checkbox-03"><input name="internet" id="checkbox-03" value="1" type="checkbox" checked/> Internet</label>
+					</div>
+				<div class="submit_container">
+					<input class="submit btn btn-large btn-warning" type="Submit" value="Find Deals"/>
+				</div>
 			</form>
 		</div>
 	</div>

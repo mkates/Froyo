@@ -1,0 +1,573 @@
+00601;170001]América Móvil]7
+00602;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00603;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00610;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00612;130741]Liberty Global, Inc.]8
+00616;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00617;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00622;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00623;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00624;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00627;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00637;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00638;170001]América Móvil]7
+00641;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00646;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00647;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00650;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00652;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00653;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00656;131082]Qwest Communications International, Inc.]9
+00659;130741]Liberty Global, Inc.]8
+00660;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00662;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00664;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00669;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00670;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00674;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00676;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00677;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00678;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00680;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00682;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00685;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00687;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00688;170001]América Móvil]7
+00690;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00692;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00693;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00694;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00703;170001]América Móvil]7
+00704;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00705;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00707;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00714;131082]Qwest Communications International, Inc.]9
+00716;170001]América Móvil]7
+00717;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00718;130741]Liberty Global, Inc.]8
+00719;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00725;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00727;130741]Liberty Global, Inc.]8
+00728;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00729;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00730;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00731;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00736;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00738;130741]Liberty Global, Inc.]8
+00739;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00740;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00741;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00745;130741]Liberty Global, Inc.]8
+00751;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00757;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00766;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00767;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00769;131082]Qwest Communications International, Inc.]9
+00771;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00773;130741]Liberty Global, Inc.]8
+00777;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00778;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00780;131082]Qwest Communications International, Inc.]9
+00782;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00786;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00791;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00794;170001]América Móvil]7:130741]Liberty Global, Inc.]8
+00795;170001]América Móvil]7:131082]Qwest Communications International, Inc.]9
+00901;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00906;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00907;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00909;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00911;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00912;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00913;131156]San Juan Cable Holding, LLC]5
+00915;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00917;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00918;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00920;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00921;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00923;131156]San Juan Cable Holding, LLC]5
+00924;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00925;131156]San Juan Cable Holding, LLC]5
+00926;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00927;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00934;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00936;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00949;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00950;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00952;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00953;170001]América Móvil]7
+00956;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00957;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00959;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00960;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00961;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00962;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00965;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00966;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00968;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00969;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00971;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00976;170001]América Móvil]7
+00979;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00982;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00983;170001]América Móvil]7:131156]San Juan Cable Holding, LLC]5
+00987;170001]América Móvil]7
+01001;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01002;130317]Comcast Corporation]10:130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01003;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01005;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01007;130235]Charter Communications]10
+01008;131425]Verizon Communications Inc.]5
+01009;131425]Verizon Communications Inc.]4
+01010;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01011;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01012;131425]Verizon Communications Inc.]6
+01013;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01020;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01022;130235]Charter Communications]10
+01026;131425]Verizon Communications Inc.]4
+01027;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01028;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01030;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01031;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01032;131425]Verizon Communications Inc.]5
+01034;130317]Comcast Corporation]10
+01035;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01036;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01038;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01039;130317]Comcast Corporation]10
+01040;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01050;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]4
+01053;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01054;131425]Verizon Communications Inc.]5
+01056;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01057;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01060;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01062;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01063;130317]Comcast Corporation]10
+01066;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]4
+01068;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01069;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01070;131425]Verizon Communications Inc.]5
+01071;131425]Verizon Communications Inc.]4:240092]Town of Russell]5
+01072;131425]Verizon Communications Inc.]5
+01073;130235]Charter Communications]10:131425]Verizon Communications Inc.]4
+01074;130235]Charter Communications]10
+01075;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01077;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01079;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01080;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01081;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01082;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01085;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01086;130317]Comcast Corporation]10
+01088;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]4
+01089;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01092;131425]Verizon Communications Inc.]5
+01093;131425]Verizon Communications Inc.]5
+01094;130317]Comcast Corporation]10
+01095;130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01096;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01097;131425]Verizon Communications Inc.]4:240092]Town of Russell]5
+01098;131425]Verizon Communications Inc.]5
+01103;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01104;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01105;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01106;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01107;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01108;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10
+01109;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01118;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01119;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01128;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01129;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01151;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01199;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01201;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]6
+01220;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]6
+01222;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]5
+01223;131425]Verizon Communications Inc.]5
+01224;131425]Verizon Communications Inc.]5
+01225;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]5
+01226;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]5
+01229;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]6
+01230;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]6
+01235;131425]Verizon Communications Inc.]5
+01236;131425]Verizon Communications Inc.]5
+01237;131425]Verizon Communications Inc.]5
+01238;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]5
+01240;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]6
+01242;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]4
+01243;131425]Verizon Communications Inc.]5
+01244;131425]Verizon Communications Inc.]5
+01245;131425]Verizon Communications Inc.]6
+01247;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]6
+01253;131425]Verizon Communications Inc.]6
+01254;131352]Time Warner Cable Inc.]7:190109]CornerStone Telephone Company, LLC]3
+01255;131425]Verizon Communications Inc.]5
+01260;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]5
+01262;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]6
+01266;131425]Verizon Communications Inc.]5
+01267;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]5
+01270;131425]Verizon Communications Inc.]5
+01301;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01330;131425]Verizon Communications Inc.]5
+01331;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]5
+01337;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01339;131425]Verizon Communications Inc.]5
+01340;131425]Verizon Communications Inc.]5
+01341;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01342;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01343;131425]Verizon Communications Inc.]5
+01344;131425]Verizon Communications Inc.]4
+01346;131425]Verizon Communications Inc.]6
+01347;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01349;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01350;131425]Verizon Communications Inc.]5
+01351;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01354;131425]Verizon Communications Inc.]4
+01360;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01364;131352]Time Warner Cable Inc.]7:131425]Verizon Communications Inc.]6
+01366;131425]Verizon Communications Inc.]6
+01367;131425]Verizon Communications Inc.]5
+01368;131425]Verizon Communications Inc.]5
+01370;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01373;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01375;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01376;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01420;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01431;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01432;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01434;131425]Verizon Communications Inc.]5
+01436;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01438;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01440;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01450;130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01451;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01452;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01453;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01460;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01462;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01463;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01464;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01467;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01468;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]4
+01469;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01473;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01474;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]4
+01475;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01501;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01503;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01504;130418]Platinum Equity, LLC]4:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01505;130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01506;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01507;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01510;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01515;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01516;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01518;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01519;130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01520;130235]Charter Communications]10
+01521;130235]Charter Communications]10:130360]Cox Communications, Inc.]9:131425]Verizon Communications Inc.]5
+01522;130235]Charter Communications]10
+01524;130235]Charter Communications]10
+01525;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01527;130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01529;130418]Platinum Equity, LLC]4:130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01531;131425]Verizon Communications Inc.]5
+01532;130235]Charter Communications]10
+01534;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01535;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01536;130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01537;130235]Charter Communications]10:131425]Verizon Communications Inc.]4
+01540;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01541;131425]Verizon Communications Inc.]5
+01542;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01543;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01545;131425]Verizon Communications Inc.]5:131361]Town of Shrewsbury]9
+01550;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01560;130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01561;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01562;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01564;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01566;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01568;130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01569;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01570;130235]Charter Communications]10
+01571;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01581;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01583;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01585;130235]Charter Communications]10
+01588;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01590;130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01602;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01603;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01604;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01605;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01606;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01607;130418]Platinum Equity, LLC]5:130235]Charter Communications]10
+01608;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01609;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01610;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01611;130235]Charter Communications]10:131425]Verizon Communications Inc.]5
+01612;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]6
+01701;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+01702;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]4
+01718;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01719;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01720;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01721;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01730;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01731;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01740;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01741;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01742;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01745;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01746;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01747;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01748;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01749;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01752;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01754;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01756;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01757;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01760;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+01770;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01772;130418]Platinum Equity, LLC]5:130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01773;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01775;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01776;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01778;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01801;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+01803;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+01810;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01821;130418]Platinum Equity, LLC]4:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01824;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01826;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01827;130235]Charter Communications]10:131425]Verizon Communications Inc.]9
+01830;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01832;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01833;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01834;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01835;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01840;130418]Platinum Equity, LLC]5:131425]Verizon Communications Inc.]6
+01841;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01843;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01844;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01845;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01850;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01851;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01852;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01854;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]4
+01860;131425]Verizon Communications Inc.]5
+01862;130418]Platinum Equity, LLC]4:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01863;130317]Comcast Corporation]10
+01864;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01867;130418]Platinum Equity, LLC]4:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01876;130317]Comcast Corporation]10
+01879;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01880;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+01886;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01887;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01890;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01901;130418]Platinum Equity, LLC]5
+01902;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01904;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01905;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01906;130418]Platinum Equity, LLC]4:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01907;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01908;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01913;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01915;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01921;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01922;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]4
+01923;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10
+01929;131425]Verizon Communications Inc.]5
+01937;130418]Platinum Equity, LLC]5
+01938;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01940;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01944;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01945;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01949;130418]Platinum Equity, LLC]5
+01950;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01951;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01952;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01960;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+01966;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+01969;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01982;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01983;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01984;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+01985;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02019;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02021;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10
+02025;130418]Platinum Equity, LLC]4:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02026;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02030;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02032;130418]Platinum Equity, LLC]4:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02035;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02038;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02043;130418]Platinum Equity, LLC]4:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02047;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02048;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02050;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02052;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02053;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02054;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02056;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02061;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02062;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:900811]Town of Norwood]10
+02066;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02067;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02071;130418]Platinum Equity, LLC]4:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02072;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02081;130418]Platinum Equity, LLC]4:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02090;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02093;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02108;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02109;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02111;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02113;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02114;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5:131095]Yankee Metro Partners, LLC]9
+02115;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6:131095]Yankee Metro Partners, LLC]5
+02116;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02118;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02119;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02120;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02121;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02122;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02124;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02125;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02126;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6:131095]Yankee Metro Partners, LLC]9
+02127;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02128;130418]Platinum Equity, LLC]5:131425]Verizon Communications Inc.]6
+02129;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02130;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02131;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6:131095]Yankee Metro Partners, LLC]9
+02132;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6:131095]Yankee Metro Partners, LLC]9
+02134;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5:131095]Yankee Metro Partners, LLC]9
+02135;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6:131095]Yankee Metro Partners, LLC]9
+02136;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5:131095]Yankee Metro Partners, LLC]9
+02138;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02139;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02140;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02141;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02142;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02143;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6:131095]Yankee Metro Partners, LLC]9
+02144;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6:131095]Yankee Metro Partners, LLC]9
+02145;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6:131095]Yankee Metro Partners, LLC]9
+02148;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02149;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02150;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02151;130317]Comcast Corporation]10
+02152;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02155;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02163;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6:131095]Yankee Metro Partners, LLC]9
+02169;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02170;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02171;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02176;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02180;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02184;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:130149]Braintree Electric Light Department]7:131425]Verizon Communications Inc.]9
+02186;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02188;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02189;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02190;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02191;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02199;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10
+02203;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02210;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10
+02215;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02301;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02302;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02322;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02324;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02330;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02332;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02333;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02338;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02339;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02341;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6
+02343;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02346;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02347;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02351;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02356;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02357;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02359;131425]Verizon Communications Inc.]9
+02364;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02366;131425]Verizon Communications Inc.]4
+02367;131425]Verizon Communications Inc.]9
+02368;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02370;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02375;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02379;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02382;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02420;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02421;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02445;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5:131095]Yankee Metro Partners, LLC]9
+02446;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5:131095]Yankee Metro Partners, LLC]9
+02451;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5:131095]Yankee Metro Partners, LLC]9
+02452;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02453;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02457;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02458;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02459;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02460;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5:131095]Yankee Metro Partners, LLC]9
+02461;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02462;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02464;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02465;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02466;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02467;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02468;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02472;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]6:131095]Yankee Metro Partners, LLC]9
+02474;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02476;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02478;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02481;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]5
+02482;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02492;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02493;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02494;130418]Platinum Equity, LLC]5:130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9:131095]Yankee Metro Partners, LLC]9
+02532;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02534;131425]Verizon Communications Inc.]6
+02535;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02536;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02537;131425]Verizon Communications Inc.]5
+02538;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02539;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02540;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02556;131425]Verizon Communications Inc.]6
+02557;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02558;131425]Verizon Communications Inc.]9
+02559;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]6
+02561;131425]Verizon Communications Inc.]5
+02562;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]4
+02563;131425]Verizon Communications Inc.]5
+02564;131425]Verizon Communications Inc.]6
+02568;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02571;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02575;130317]Comcast Corporation]9
+02576;130317]Comcast Corporation]10:131425]Verizon Communications Inc.]9
+02584;131425]Verizon Communications Inc.]5
+02601;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02630;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02632;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02633;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02635;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02637;131425]Verizon Communications Inc.]5
+02638;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02639;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02643;131425]Verizon Communications Inc.]4
+02644;131425]Verizon Communications Inc.]5
+02645;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02646;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02647;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02649;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02650;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02651;130317]Comcast Corporation]9
+02652;131425]Verizon Communications Inc.]5
+02653;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02655;130317]Comcast Corporation]9:131425]Verizon Communications Inc.]5
+02659;130317]Comcast Corporation]9:131425
