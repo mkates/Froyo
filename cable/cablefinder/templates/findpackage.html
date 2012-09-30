@@ -1,10 +1,15 @@
 {% extends "base.html" %}
-{%block step3number%}progress-number-active{%endblock%}
-{%block step3text%}progress-text-active{%endblock%}
+{%block step2number%}progress-number-active{%endblock%}
+{%block step2text%}progress-text-active{%endblock%}
 {% block headerlink%}
 <link href="{{STATIC_URL}}findpackage.css" rel="stylesheet" type="text/css" />
+<link href="{{STATIC_URL}}preferences.css" rel="stylesheet" type="text/css" />
+<script src="{{STATIC_URL}}js/preferences.js" type="text/javascript" ></script>
 <script>
-//Function to get URL Get Names and Values
+
+//**********************************************
+//Function to extract parameters from the page URL
+//**********************************************
 function getUrlVars()
 {
     var vars = [], hash;
@@ -18,14 +23,14 @@ function getUrlVars()
     return vars;
 }
 
-//New Zip Code All Handled Within the Javascript
+//**********************************************
+//New Zip Code (All Handled Within the Javascript)
+//**********************************************
 $(document).ready(function() {
 	var urlvars = getUrlVars();
-	var zip = '00000';
-	var prefs = '000000000';
+	var zip = 'not set';
 	if (urlvars['zipcode']) { zip = urlvars['zipcode'] };
-	if (urlvars['prefs']) { prefs = urlvars['prefs'] };
-	$(".changetext").html("Current zipcode is "+zip+" (<span>Change zipcode</span>)");
+	$(".changetext").html("Current zipcode is "+zip+" (<span>Not your zipcode?</span>)");
 	$(".address p span").click(function() {
 		$(".changetext").fadeOut('fast',function() {
 			$(".newzipcode").fadeIn();
@@ -50,24 +55,29 @@ $(document).ready(function() {
 		if (newzip.length !== 5) {
 			valid = false;
 		}		
-		//Reload this URL with new parameters
+		//Reload the page with new zip code
 		if (valid) {
-			var url = window.location.href.split("?")[0];
-			url += "?zipcode="+newzip+"&prefs="+prefs;
-			window.location = url;
+			data.zipcode = newzip;
+			$(".changetext").html("Current zipcode is "+newzip+" (<span>Change zipcode</span>)");
+			$(".newzipcode").fadeOut('fast',function() {
+				$(".changetext").fadeIn();
+			});
+			updateResults();
+			
 		};
 	});
 	
 	//Toggler Functionality
 	$(document).ready(function() {
 		$(".togglebutton").click(function() {
+			var handle = this;
 			var content = $(this).parent().parent().children(".package-bottom-content");
 			if ($(content).css("display")==="none") {
 				$(content).slideToggle('slow');
-				$(".togglebutton").children().html("Hide Details");
+				$(handle).children().html("Hide Details");
 			} else {
 				$(content).slideToggle('slow');
-				$(".togglebutton").children().html("Show Details");
+				$(handle).children().html("Show Details");
 			}
 		});
 	});
@@ -87,246 +97,689 @@ $(document).ready(function() {
 	
 });
 
+//**********************************************
+//******Sliders Functionality********************
+//**********************************************
+$(document).ready(function() {
+	var sliderlist = ["#sports-slider",'#movie-slider',"#hd-slider","#kids-slider",
+	"#multicultural-slider","#music-slider","#news-slider","#religion-slider"];
+	for (var i = 0; i < sliderlist.length; i++) {
+		var handler = sliderlist[i][1];
+		$(sliderlist[i]).slider({ 
+			min: 0,
+			animate: true,
+			max: 4,
+			stop: function() {
+				updateResults()
+			},
+			values: [ 2 ],
+			slide: function( event, ui ) {
+				var text = sliderTextRender(ui.values[0]);
+				$("#"+this.id+"-value").html(text);
+				data.update(this.id.split("-")[0],ui.values[0]);
+				console.log(data.sports);
+			},	
+		});
+	}
+	//Phone Slider
+	$("#phone-slider").slider({ 
+			min: 0,
+			animate: true,
+			max: 2,
+			stop: function() {
+				updateResults()
+			},
+			values: [ 1 ],
+			slide: function( event, ui ) {
+				var text = sliderTextRenderPhone(ui.values[0]);
+				$("#"+this.id+"-value").html(text);
+				data.phoneslider = ui.values[0]
+			},	
+	});
+	//Internet Slider
+	$("#internet-slider").slider({ 
+			min: 0,
+			animate: true,
+			max: 4,
+			stop: function() {
+				updateResults()
+			},
+			values: [ 2 ],
+			slide: function( event, ui ) {
+				var text = sliderTextRenderInternet(ui.values[0]);
+				$("#"+this.id+"-value").html(text);
+				data.internetslider = ui.values[0]
+			},	
+	});
+	//Price Slider
+	$("#price-slider").slider({ 
+			min: 30,
+			animate: true,
+			max: 150,
+			stop: function() {
+				updateResults()
+			},
+			values: [ 150 ],
+			slide: function( event, ui ) {
+				var text = ui.values[0];
+				$("#"+this.id+"-value").html("$"+text);
+				data.maxprice = ui.values[0]
+			},	
+	});
+	//Initialize all sliders
+	$(".changingtext").html(sliderTextRender(2));
+	$(".changingtext2").html(sliderTextRenderPhone(1));
+	$(".changingtext3").html(sliderTextRenderInternet(2));
+});
+
+//**********************************************
+//******Sidebar Toggler Functionality***********
+//**********************************************
+$(document).ready(function() {
+	var togglers = [".providers-toggler",".overview-toggler",".tv-toggler",".phone-toggler",".internet-toggler"]
+	for (var c=0; c < togglers.length; c++) {
+		$(togglers[c]).click(function() {
+			var handle = $(this);
+			$(handle.next()).slideToggle('500',function() {
+				if ($(this).css("display")==="none") {
+					$(handle).html("Show");
+				} else {
+					$(handle).html("Hide");
+				};
+			});
+		});
+	}
+	//TV Toggler More Options
+	$(".slider-toggler").click(function() {
+		var handle = this;
+		var content = $(".toggled-slider");
+		if ($(content).css("display")==="none") {
+			$(content).slideToggle('slow');
+			$(handle).html("Show Less Options");
+		} else {
+			$(content).slideToggle('slow');
+			$(handle).html("Show More Options");
+		}
+	});
+});
+//**********************************************
+//******Text Renderers For Sidebar**************
+//**********************************************
+var sliderTextRender = function (value) {
+	if (value == 0) {
+	    return "Not important"
+	} else if (value == 1) {
+	    return "Unimportant"
+	} else if (value == 2) {
+	    return "Average"
+	} else if (value == 3) {
+	    return "Very Important"
+	} else if (value == 4) {
+	    return "Important!!!!"
+	}
+};
+var sliderTextRenderPhone = function (value) {
+	if (value == 0) {
+	    return "Cost Effective"
+	} else if (value == 1) {
+	    return "Standard"
+	} else if (value == 2) {
+	    return "Full-Featured"
+	} 
+};
+var sliderTextRenderInternet = function (value) {
+	if (value == 0) {
+	    return "Basic Connection"
+	} else if (value == 1) {
+	    return "Cost Effective"
+	} else if (value == 2) {
+	    return "Average"
+	} else if (value == 3) {
+	    return "Very Fast"
+	} else if (value == 4) {
+	    return "Lightning Fast"
+	}
+};
+
+//**********************************************
+//******Initialize and Update Results***********
+//**********************************************
+var settings = function() {
+	this.zipcode = "00000";
+	//Services Wanted
+	this.tv = 1;
+	this.phone= 1;
+	this.internet = 1;
+	//Miscanellenous
+	this.maxprice = 150;
+	//this.providers = [];
+	//TV BOXES
+	this.numbertv = 1;
+	this.numberhd = 0;
+	this.numberdvr = 0;
+	//TV Sliders
+	this.hd = 2;
+	this.sports = 2;
+	this.movie = 2;
+	this.kids = 2;
+	this.multicultural = 2;
+	this.music = 2;
+	this.news = 2;
+	this.religion = 2;	
+	//Function used by sliders to update values
+	this.update = function (object, value) {
+		if (object === "hd") {this.hd = value };
+		if (object === "sports") {this.sports = value };
+		if (object === "movie") {this.movie = value };
+		if (object === "kids") {this.kids = value };
+		if (object === "multicultural") {this.multicultural = value };
+		if (object === "music") {this.music = value };
+		if (object === "news") {this.news = value };
+		if (object === "religion") {this.religion = value };
+		if (object === "tv") {this.tv = value };
+		if (object === "phone") {this.phone = value };
+		if (object === "internet") {this.internet = value };
+	};
+	//Phone/Internet Sliders
+	this.phoneslider = 2;
+	this.internetslider = 2;
+
+}
+//Instance that stores all the data
+var data = new settings();
+
+var updateResults = function() {
+	$(".loader_container").css("display","block");
+	$(".mainbar").addClass("opacity");
+	$.get("/packagelookup",{
+		zipcode: data.zipcode,
+		tv: data.tv, 
+		phone: data.phone,
+		internet: data.internet,    
+		maxprice: data.maxprice,    	
+		//providers: data.providers,    
+		numbertv: data.numbertv,    
+		numberhd: data.numberhd,    
+		numberdvr: data.numberdvr,    
+		hd: data.hd,    
+		sports: data.sports,    
+		movie: data.movie,    
+		kids: data.kids,    
+		multicultural: data.multicultural,    
+		music: data.music,    
+		news: data.news,    
+		religion: data.religion,  
+		phonequality: data.phoneslider,
+		internetquality: data.internetslider,  
+	}, function(data) {
+		arr = JSON.parse(data);
+		drawNewResults(arr);
+	});
+};
+
+
+
+//**********************************************
+//******Unused Functions************************
+//**********************************************
+$(document).ready(function() {
+	$(".spinning-icon").click(function() {
+		if ($(this).hasClass("plus-shape")) {
+			$(this).removeClass("plus-shape");
+		} else {
+			$(this).addClass("plus-shape");
+		}
+	});
+});
+
+//******************************
+//******TV Preferences**********
+//******************************
+var updateNumberOfTv = function(handler) {
+		var value = $(handler).val();
+		var tv_value = $("#number-of-tv").val();
+		if (tv_value < value) {
+			$("#number-of-tv").val(value);
+		}
+};
+$(document).ready(function() {
+	$("#number-of-tv").change(function() {
+		data.numbertv = $(this).val();
+		updateResults();
+		var tv_value = $("#number-of-tv").val();
+		if (tv_value < $("#number-of-hd").val()) {
+			$("#number-of-hd").val(tv_value);
+		}
+		if (tv_value < $("#number-of-dvr").val()) {
+			$("#number-of-dvr").val(tv_value);
+		}
+	});
+	$("#number-of-hd").change(function() {
+		data.numberhd = $(this).val();
+		updateResults();
+		updateNumberOfTv(this);
+	});
+	$("#number-of-dvr").change(function() {
+		data.numberdvr = $(this).val();
+		updateResults();
+		updateNumberOfTv(this);
+	});
+});
+//******************************
+//******Grab This Deal Button****
+//******************************
+//The package parameter is in the id of the button
+$(document).ready(function() {
+	$(".grabdeal").click(function() {
+		var id = $(this).attr('id').split("_")[1];	
+		var url = "/buypackage?id="+id;
+		window.open(url);
+	});
+});
+
+//******************************
+//******Help Box****************
+//******************************
+$(document).ready(function() {
+	$(".packagefinder").click(function() {	
+		$("#modal-prefs").modal('show');
+	});
+	$(".closeprefs").click(function() {	
+		$("#modal-prefs").modal('hide');
+	});
+});
+//**********************************************
+//******Custom Checkboxes, services handled here
+//**********************************************
+$(document).ready(function() {
+	$(".checkbox-container").click(function() {	
+		var handle = $(this).children(".custom_checkbox");
+		var value = 0;
+		if ($(handle).hasClass("custom_on")) {
+			value = 1;
+			$(handle).removeClass("custom_on");
+		} else {
+			$(handle).addClass("custom_on");
+		}
+		//Toggle service categories
+		if ($(handle).attr("id")==="checkbox-tv") { $(".tv").slideToggle()};
+		if ($(handle).attr("id")==="checkbox-phone") { $(".phone").slideToggle()};
+		if ($(handle).attr("id")==="checkbox-internet") { $(".internet").slideToggle()};
+		
+		//Update Results
+		data.update($(handle).attr("id"),value);
+		updateResults();
+	});
+	$(".custom_checkbox").hover(function() {	
+		if ($(this).hasClass("custom_on")) {
+		}; 
+	});
+});
+
+//******************************
+//******Bottom Package Tabs*****
+//******************************
+$(document).ready(function() {
+	$(".tab-box").click(function() {
+		console.log('here');	
+		//Change tabs so only active has active class
+		var tabs = $(this).parent().children();
+		if (tabs.hasClass("active")) { tabs.removeClass("active") };
+		var position = 0;
+		for (var x=0; x < tabs.length; x++) {
+			if ($(tabs[x]).html() === $(this).html()) {
+				position = x;
+			}
+		}
+		$(this).addClass("active");
+		//Update tab content	
+		var content = $(this).parent().next().children();
+		var content_handler = content[position]; 
+		for (var x=0; x < content.length; x++) {
+			if (x !== position && $(content[x]).is(':visible')) {
+				$(content[x]).fadeOut('fast',function() {
+					$(content[position]).fadeIn();
+				});
+			}
+		}
+	});
+});
+//******************************
+//******Draw Boxes**************
+//******************************
+// ReturnedAPICall: [ id, [package], [package], [package]]
+//ID: tv:1,phone:2,inter:3,tvphone:4, tvinter:5,interphone:6,triple: 7
+// Package: [ id, [companies] , rank, price, addons, text, [rankings], [tvtext], [phonetext], [internettext] ]
+ 
+var returneditems = [ '7', ['2awed',[['DirecTV','Extra Choice Package']],'A+', '29','84',
+					'This triple play package is simply unbeatable. with everything you want in TV entertainment and sports. apply. Get the absolute best insports, movies, and entertainment with the ultimate Package!This triple play package is simply unbeatable. with everything you want in TV entertainment and sports. apply. Get the absolute best insports, movies, and entertainment with the ultimate Package!',
+					[['HD Channels',4],['sports Channels',3],['movie Channels',5],['funny Channels',2]], 
+					['Value-packed package including all the top entertainment and news channels, plus all the major sports networks. (Reg. $54.99/mo)]',
+					'Get over 4,000 On Demand shows and movies at no extra charge, watch LIVE TV on your iPad®, enjoy Pandora and YouTube on your TV, and more.'],[],['internetdetails']]]
+					
+var drawNewResults = function() {
+	var service_id = returneditems[0];
+	$(".mainbar").empty();
+	var mainbar = $(".mainbar");
+	
+	for (var p = 1; p < returneditems.length; p++) {
+		var box = returneditems[p];
+		
+		//Build DOM 
+		var package_handle = $("<div class='package'>");
+		mainbar.append(package_handle);
+		var package_top = $("<div class='package-top'>");
+		package_handle.append(package_top);
+		var package_bottom = $("<div class='package-bottom'>");
+		package_handle.append(package_bottom);
+		var package_header = $("<div class='package-header'>");
+		package_top.append(package_header);
+		
+		//Add company header
+		if (parseFloat(returneditems[0]) < 4) {
+			var singlecompanydiv = $("<div class='company-div-single'>");
+			package_header.append(singlecompanydiv);
+			singlecompanydiv.append("<div class='single-logo-div "+box[1][0][0]+"-logo'>");
+			singlecompanydiv.append("<h2 class='single-header'>"+box[1][0][0]);
+			singlecompanydiv.append("<h3 class='single-subheader'>"+box[1][0][1]);
+			
+		
+		} else {
+			companies = box[1];
+			var pluscounter = companies.length-1;
+			$.each(companies, function() {
+				var companydiv = $("<div class='company-div'>");
+				package_header.append(companydiv);
+				companydiv.append("<div class='logo-div "+this[0]+"-logo'>");	
+				companydiv.append("<h1>"+this[1]);
+				if (pluscounter > 0) {
+					package_header.append('<div class="plussign">+</div>');	
+				};	
+				pluscounter -= 1;
+			});
+		}
+		
+		//Match Ranking
+		var match = $("<div class='match'>");
+		package_header.append(match);
+		match.append("<h2>"+box[2]);
+		match.append("<h3>Match Ranking</h3>");
+		
+		//Text
+		var introtext = $("<div class='intro-text'>");
+		package_header.append(introtext);
+		introtext.append(box[5]);
+		
+		//Pricing
+		var pricing = $("<div class='pricing'>");
+		package_header.append(pricing);
+		var baseprice = $("<div class='baseprice'>");
+		pricing.append(baseprice);
+		baseprice.append("<p>$"+box[3]);
+		baseprice.append("<div class='cents'><p>99</p><p class='price-divider'>___</p><p>Mo</p></div>");
+		pricing.append("<p class='addons'>+ est $"+box[4]+" in add-ons</p>");
+		
+		//GrabThisDeal
+		package_top.append("<a class='btn btn-purple btn-large grabdeal' id='"+box[0]+"'>Grab This Deal</a>");
+		
+		
+		//Ratings
+		var ratings = $("<div class='ratings'>");
+		package_header.append(ratings);
+		var ratingscolumn1 = $("<div class='ratings-column'>");
+		ratings.append(ratingscolumn1);
+		var ratingscolumn2 = $("<div class='ratings-column'>");
+		ratings.append(ratingscolumn2);
+		var counter = 0;
+		ranking = box[6];
+		$.each(ranking, function() {
+			var individualrating = $("<div class='individual-rating'>");
+			individualrating.append("<p>"+this[0]);
+			individualrating.append("<div class='stars-sprite "+convertNumber(this[1])+"'stars></div>");
+			if (counter % 2 === 0) {
+				ratingscolumn1.append(individualrating);
+			} else {
+				ratingscolumn2.append(individualrating);
+			}
+			counter += 1;			
+		});
+		
+		//Tab Content
+		var packagebottomcontent = $('<div class="package-bottom-content">');
+		package_bottom.append(packagebottomcontent);
+		var packagebottomcontentborder = $('<div class="package-bottom-content-border">');
+		packagebottomcontent.append(packagebottomcontentborder);
+		var tabcontainer = $("<div class='tab-container'>");
+		packagebottomcontentborder.append(tabcontainer);
+		var active = " "+'active';
+		var tabnames = [];
+		if (returneditems[0] === '7') {tabnames = ['TV Details','Internet Details','Phone Details']};
+		if (returneditems[0] === '6') {tabnames = ['Internet Details','Phone Details']};
+		if (returneditems[0] === '5') {tabnames = ['TV Details','Internet Details']};
+		if (returneditems[0] === '4') {tabnames = ['TV Details','Phone Details']};
+		if (returneditems[0] === '3') {tabnames = ['Internet Details']};
+		if (returneditems[0] === '2') {tabnames = ['Phone Details']};
+		if (returneditems[0] === '1') {tabnames = ['TV Details']};
+		$.each(tabnames,function() {
+			tabcontainer.append("<div class='tab-box"+active+"'>"+this);
+			active = "";
+		});
+		
+		//Show details button
+		package_bottom.append('<div class="package-bottom-tab"><div class="bottombar"></div><div class="togglebutton"><p>Show details</p></div>');
+		
+		//Bottom Content
+		var tabcontent = $("<div class='tab-content'>");
+		packagebottomcontentborder.append(tabcontent);
+		var first = 'tab-content-first'
+		
+		//TV Content
+		if (returneditems[0]  === '1' || returneditems[0]  === '4' || returneditems[0]  === '5' || returneditems[0]  === '7') {
+			var tvcontent = $("<div class='tab-content-div "+first+"'>");
+			first = "";
+			tabcontent.append(tvcontent);
+			var table = $("<table>");
+			tvcontent.append(table);
+			tvtext = box[7];
+			$.each(tvtext,function() {
+				table.append('<tr><td class="checkmark">&#x2713;</td><td>'+this+'</td></tr>');
+			});
+		}
+		
+		//Internet Content
+		if (returneditems[0] > 4 || returneditems[0]  === '3') {
+			var internetcontent = $("<div class='tab-content-div "+first+"'>");
+			first = "";
+			tabcontent.append(internetcontent);
+			internetcontent.append('<p>'+box[9]);
+		}
+		
+		//Phone Content
+		if (returneditems[0] > 5 || returneditems[0]  === '4' || returneditems[0]  === '2') { 
+			var phonecontent = $("<div class='tab-content-div "+first+"'>");
+			first = "";
+			tabcontent.append(phonecontent);
+			phonecontent.append('<p>'+box[8]);
+		}
+		//Clear div
+		packagebottomcontentborder.append('<div class="clear"></div>');
+	};
+
+	//Remove loader and opacity
+	$(".loader_container").css("display","none");
+	$(".mainbar").removeClass("opacity");
+	
+	$(".tab-box").click(function() {	
+		//Change tabs so only active has active class
+		var tabs = $(this).parent().children();
+		if (tabs.hasClass("active")) { tabs.removeClass("active") };
+		var position = 0;
+		for (var x=0; x < tabs.length; x++) {
+			if ($(tabs[x]).html() === $(this).html()) {
+				position = x;
+			}
+		}
+		$(this).addClass("active");
+		//Update tab content	
+		var content = $(this).parent().next().children();
+		var content_handler = content[position]; 
+		for (var x=0; x < content.length; x++) {
+			if (x !== position && $(content[x]).is(':visible')) {
+				$(content[x]).fadeOut('fast',function() {
+					$(content[position]).fadeIn();
+				});
+			}
+		}
+	});
+	
+	//Toggler Functionality
+	$(document).ready(function() {
+		$(".togglebutton").click(function() {
+			var handle = this;
+			var content = $(this).parent().parent().children(".package-bottom-content");
+			if ($(content).css("display")==="none") {
+				$(content).slideToggle('slow');
+				$(handle).children().html("Hide Details");
+			} else {
+				$(content).slideToggle('slow');
+				$(handle).children().html("Show Details");
+			}
+		});
+	});
+}
+
+var convertNumber = function(number) {
+	if (number == 0) { return 'zero'};
+	if (number == 1) { return 'one'};
+	if (number == 2) { return 'two'};
+	if (number == 3) { return 'three'};
+	if (number == 4) { return 'four'};
+	if (number == 5) { return 'five'};
+}
 </script>
+
 <style>
-
-.content {
-	background: #fff;
+.checkbox-container {
+	height: 20px;
+	margin-bottom: 2px;
+	border-radius: 4px;
+	padding: 0 3px;
 }
-.mask {
-	opacity: .3;
-}
-.loader_container {
-	width:450px;
-	height: 100px;
-	position: fixed;
-	z-index:999;
-	top: 190px;
-	background: white;
-	border:3px solid #888;
-	border-radius: 10px;
-	left: 50%;
-	margin-left: -125px;
-	text-align: center;
-}
-.loader_container p {
-	font-size: 22px;
-	font-weight: 900;
-	line-height: 90px;
-	color: #333;
-}
-.find-topbar {
-	height: 47px;
-	width:100%;
-	border-top-left-radius: inherit;
-	border-top-right-radius: inherit;
-	border-bottom: 1px solid #ddd;
-	box-shadow: 0px 1px 4px 1px #ccc;
-	background: #f2f2f2;
-	/* IE10 Consumer Preview */ 
-	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
-	/* Mozilla Firefox */ 
-	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
-	/* Opera */ 
-	background-image: -o-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
-	/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #F2F2F2));
-	/* Webkit (Chrome 11+) */ 
-	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
-	/* W3C Markup, IE10 Release Preview */ 
-	background-image: linear-gradient(to bottom, #FFFFFF 0%, #F2F2F2 100%);
-	
-	
-}
-.find-topbar .sorter {
-	float: right;
-	color: #777;
-	margin: 10px 20px 0 0;
-}
-.address {
-	float: left;
-}
-
-.address p {
-	margin: 15px 0 0 10px;
-	color: #777;
-}
-.address .newzipcode {
-	display: none;
-	margin-top: -5px;
-}
-.address .newzipcode p {
-	margin: 5px 10px 0 10px;
-	float: left;
-	color: #777;
-}
-.address .newzipcode input {
-	margin: 0 5px;
-	float: left;
-}
-.address .newzipcode input {
-	float: left;
-}
-.address p span:hover {
-	cursor:pointer;
-	text-decoration: underline;
-}
-.sidebar {
-	width: 180px;
-	padding: 10px 10px 10px 10px;
-	
-	min-height: 200px;
-	float: left;
-	border-right: 1px solid #ccc;
-}
-.sidebar-section {
-	border-bottom: 1px solid #ccc;
-	padding: 0 0 10px 0;
-}
-.sidebar-section h3 {
-	padding-left: 5px;
-	font-size: 16px;
-	text-shadow: none;
-	color: #222;
-	font-weight: 900;
-	margin: 10px 0;
-}
-.sidebar-section p {
-	padding-left: 5px;
-}
-.sorter-sort {
-	margin-left: 5px;
-	width: 170px;
-}
-.sorter-select {
-	margin-left: 5px;
-	width: 170px;
-	/* IE10 Consumer Preview */ 
-	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
-	/* Mozilla Firefox */ 
-	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
-	/* Opera */ 
-	background-image: -o-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
-	/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #F2F2F2));
-	/* Webkit (Chrome 11+) */ 
-	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #F2F2F2 100%);
-	/* W3C Markup, IE10 Release Preview */ 
-	background-image: linear-gradient(to bottom, #FFFFFF 0%, #F2F2F2 100%);
-}
-.sidebar-section label {
-	margin-bottom: 10px;
-	margin-left: 10px;
-	padding-bottom: 1px;
-}	
-
-.nobottomborder {
-	border-bottom: none;
-}
-.mainbar {
-	float:right;
-	width: 739px;
-	padding: 0 20px 20px 20px;
-}
-.package {
-	width: 719px;
-	margin: 20px auto;
-	min-height: 50px;
-}
-.package-top {
-	height: 140px;
-	border:4px solid #fff;
-	position: relative;
-	z-index: 10;
-	padding: 5px;
-	background: #f3f3f3f3;
-	box-shadow: 0px 3px 3px 3px #ddd;
-	/* IE10 Consumer Preview */ 
-	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #F7F7F7 100%);
-	
-	/* Mozilla Firefox */ 
-	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #F7F7F7 100%);
-	
-	/* Opera */ 
-	background-image: -o-linear-gradient(top, #FFFFFF 0%, #F7F7F7 100%);
-	
-	/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #F7F7F7));
-	
-	/* Webkit (Chrome 11+) */ 
-	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #F7F7F7 100%);
-	
-	/* W3C Markup, IE10 Release Preview */ 
-	background-image: linear-gradient(to bottom, #FFFFFF 0%, #F7F7F7 100%);	
-}
-.package-bottom {
-}
-.package-bottom-content {
-	display: none;
-	background: #f2f2f2;
-	border-right: 1px solid #eee;
-	border-left: 1px solid #eee;
-	margin: 0 auto;
-	width: 706px;
-}
-.package-bottom-content-border {
-	border-left:3px solid white;
-	border-right:3px solid white;
-	padding: 10px;
-}
-.bottombar {
-	height: 5px;
-	width: 700px;
-	margin: 0 auto;
-	background: #f2f2f2;
-	border-right: 3px solid white;
-	border-left: 3px solid white;
-	border-bottom: 3px solid white;
-	box-shadow: 0px 2px 2px #ddd;
-}
-.togglebutton {
-	width: 200px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	background: #f2f2f2;
-	height: 25px;
-	text-align: center;
-	margin: 0 auto;
-	margin-top: -3px;
-	border-top: 3px solid #f2f2f2;
-	border-right: 3px solid white;
-	border-left: 3px solid white;
-	border-bottom: 3px solid white;
-	box-shadow: 0px 2px 2px #ddd;
-}
-.togglebutton:hover {
+.checkbox-container:hover {
+	background: #e0ecf0;
 	cursor: pointer;
 }
-.togglebutton p {
-	padding-top: 5px;
+.checkbox-container .custom_checkbox {
+	float: left;
+}
+.checkbox-container p {
+	float: left;
+	padding-left: 10px;
+	color: #555;
+	font-size: 12px;
+}
 </style>
 {% endblock %}
+
 {% block content %}
+
+<div class="modal prefsmodal" id="modal-prefs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-body preferences">
+		<div class="returnresults"><btn class="closeprefs btn btn-warning">Return to Results</btn></div>
+		<p class="advice">These questions help customize and form the match score for all the available packages. You are welcome to skip this step. </p>
+		<div class="progress progress-info progressbar">
+			<div class="bar" style="width:0%"></div>
+		</div>
+		<div class="question_container">
+			<div class="questions">
+				<div id="question4" class="question">
+				<div class="question_text">What will you primarily use Internet for?</div>
+				<div class="answer_container">
+					<p id="0_0">a. Frequent video streaming, large-file sharing, web development </p>
+					<p id="0_1">b. Frequent use of e-mail, websites, social networks, and online shopping.</p>
+					<p id="0_2">c. Mostly just e-mail and occasional web surfing </p>
+				</div>
+			</div>
+				<div id="question5" class="question">
+				<div class="question_text">Which of the following best describes what you want in a home phone service?</div>
+				<div class="answer_container">
+					<p id="1_0"> a. A premium, full-featured system and unlimited calling.</p>
+					<p id="1_1"> b. A VOIP phone system to make calls through the web.</p>
+					<p id="1_2"> c.	The most cost-effective home phone solution available. </p>
+				</div>
+			</div>
+				<div id="question6" class="question">
+					<div class="question_text">In how many rooms do you estimate you’ll need TV?</div>
+					<div class="answer_container">
+						<p id="2_0"> a. 1 </p>
+						<p id="2_1"> b. 2</p>
+						<p id="2_2"> c. 3 </p>
+						<p id="2_2"> c. 4 </p>
+						<p id="2_2"> c. 5 or more </p>
+					</div>
+				</div>
+				<div id="question7" class="question">
+					<div class="question_text">In how many of those rooms do you plan to use HD TVs? </div>
+					<div class="answer_container">
+						<p id="2_0"> a. 1 </p>
+						<p id="2_1"> b. 2</p>
+						<p id="2_2"> c. 3 </p>
+						<p id="2_2"> c. 4 </p>
+						<p id="2_2"> c. 5 or more </p>
+					</div>
+				</div>
+				<div id="question8" class="question">
+					<div class="question_text">In how many of those rooms do you need DVR (to record live television)?</div>
+					<div class="answer_container">
+						<p id="2_0"> a. 1 </p>
+						<p id="2_1"> b. 2</p>
+						<p id="2_2"> c. 3 </p>
+						<p id="2_2"> c. 4 </p>
+						<p id="2_2"> c. 5 or more </p>
+					</div>
+				</div>
+				<div id="question9" class="question">
+					<div class="question_text">Which of the following programming options are important to you?</div>
+					<div class="answer_container">
+						<input type="checkbox" />Sports
+						<input type="checkbox" />Movies
+						<input type="checkbox" />International/Bilingual
+						<input type="checkbox" />On Demand
+						<input type="checkbox" />Adult Entertainment
+						
+					</div>
+				</div>
+				<div id="showresults" class="nextbutton"><a class="btn btn-large btn-warning">Show Your Results</a></div>
+			</div>
+			<div class="back btn btn-mini"> Last Question </div>
+			<div class="forward btn btn-mini"> Next Question </div>
+		</div>
+
+	</div>
+	
+</div>
 <div class="loader_container">
 	<p> Applying Your Choices . . . </p>
 </div>
 <div class="content">
-  <div class="find-topbar">
+ 
+  <div class="find-topbar main">
   		<div class="sorter">
-  			Sort by:
-			<select class="sorter-sort">
+  			Need help choosing? Call us at 1-123-456-7890
+			<!-- 
+<select class="sorter-sort">
 				<option>Match Score</option>
 				<option>Consumer Rank</option>
 				<option>Price - Low to High</option>
 				<option>Price - High to Low</option>
 			</select>
+ -->
 		</div>
-		
 		<div class="address">
-			<p class="changetext"><p>
+			<p class="changetext"></p>
 			<div class="newzipcode">
-				<p>Zipcode:</p>
-				<input type="text" class="input-small zipcode" maxlength="5" placeholder="Zipcode">
+				<p>New Zipcode:</p>
+				<input type="text" class="input-small zipcode" maxlength="5" placeholder="Zipcode" />
 				<button class="btn btn-info changezip">Change Zipcode</button>
 				<button class="btn cancelnewzip">Cancel</button>
 				
@@ -334,61 +787,264 @@ $(document).ready(function() {
 		</div>
   </div>
   
-	<div class="sidebar">
-		<div class="sidebar-section questions">
-			<h3> Preferences</h3>
-			<p>Number of boxes</p>
-			<select class="sorter-select">
-				<option>Question 1 Answers</option>
-			</select>
-			<p>Number of HD boxes</p>
-			<select class="sorter-select">
-				<option>Question 2 Answers</option>
-			</select>
-			<p>Number of DVR boxes</p>
-			<select class="sorter-select">
-				<option>Question 3 Answers</option>
-			</select>
-			<p>VOIP Preference</p>
-			<select class="sorter-select">
-				<option>Question 4 Answers</option>
-			</select>
+    <div class="sidebar main">
+    	<!-- 
+<div class="helpbox">
+    		<h1> Need more help making your decision?</h1>
+    		<a class="btn btn-warning packagefinder">Try Our Package Finder</a>
+    	</div>
+ -->
+		<div class="sidebar-section">
+			<h3> Services </h3>
+			<div class="overview-toggler showall-toggler">Hide</div>
+			<div class="none service_container">
+				<div class="checkbox-container"><div id="checkbox-tv" class="custom_checkbox custom_on"></div><p>TV</p></div>
+				<div class="checkbox-container"><div id="checkbox-phone" class="custom_checkbox custom_on"></div><p>Phone</p></div>
+				<div class="checkbox-container"><div id="checkbox-internet" class="custom_checkbox custom_on"></div><p>Internet</p></div>
+				<div class="slider_container">
+					<h1> Max Price Per Month: <span class="changingtext4" id="price-slider-value"> $150</span></h1>
+					<div class="slide_range_class" id="price-slider"></div>
+				</div>
+				<div class="spacer"></div>
+			</div>
 		</div>
-		<div class="sidebar-section questions">
+		<div class="sidebar-section tv">
+			<h3> TV </h3>
+			<div class="tv-toggler showall-toggler">Hide</div>
+			<div class="none">
+				<p>Number of televisions</p>
+				<select id="number-of-tv" class="sorter-select">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+				</select>
+				<div class="indent">
+					<p>How many are HD boxes?</p>
+					<select id="number-of-hd" class="sorter-select">
+						<option>0</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+					</select>
+					<p>How many DVR (Recordable) ?</p>
+					<select id="number-of-dvr" class="sorter-select">
+						<option>0</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+					</select>
+				</div>
+				<div class="slider_container">
+					<h1>HD: <span class="changingtext" id="hd-slider-value"></span></h1>
+					<div class="slide_range_class" id="hd-slider"></div>
+				</div>
+				<div class="slider_container">
+					<h1>Sports: <span class="changingtext" id="sports-slider-value"></span></h1>
+					<div class="slide_range_class" id="sports-slider"></div>
+				</div>
+				<div class="slider_container">
+					<h1>Movies: <span class="changingtext" id="movie-slider-value"></span></h1>
+					<div class="slide_range_class" id="movie-slider"></div>
+				</div>
+				<div class="toggled-slider">
+					<div class="slider_container">
+						<h1>Kids: <span class="changingtext" id="kids-slider-value"></span></h1>
+						<div class="slide_range_class" id="kids-slider"></div>
+					</div>
+					<div class="slider_container">
+						<h1> Cultural: <span class="changingtext" id="multicultural-slider-value"></span> </h1>
+						<div class="slide_range_class" id="multicultural-slider"></div>
+					</div>
+					<div class="slider_container">
+						<h1> Music: <span class="changingtext" id="music-slider-value"></span></h1>
+						<div class="slide_range_class" id="music-slider"></div>
+					</div>
+					<div class="slider_container">
+						<h1> News: <span class="changingtext" id="news-slider-value"></span></h1>
+						<div class="slide_range_class" id="news-slider"></div>
+					</div>
+					<div class="slider_container">
+						<h1> Religion: <span class="changingtext" id="religion-slider-value"></span></h1>
+						<div class="slide_range_class" id="religion-slider"></div>
+					</div>
+				</div>
+				<div class="slider-toggler">Show More Options </div>
+				<div class="spacer"></div>
+			</div>
+		</div>
+		<div class="sidebar-section phone">
+			<h3>Phone </h3>
+			<div class="phone-toggler showall-toggler">Hide</div>
+			<div class="none">
+				<div class="slider_container">
+						<h2> Quality: <span class="changingtext2" id="phone-slider-value"></span></h2>
+						<div class="slide_range_class" id="phone-slider"></div>
+					</div>
+		       <div style="margin-top: 15px" class="checkbox-container"><div id="checkbox-callerid" class="custom_checkbox custom_on"></div><p>Caller ID</p></div>
+		       <div class="checkbox-container"><div id="checkbox-unlimitedus" class="custom_checkbox custom_on"></div><p>Unlimited US</p></div>
+		       <div class="checkbox-container"><div id="checkbox-unlimitedinternational" class="custom_checkbox custom_on"></div><p>Unlimited International</p></div>
+				<div class="spacer"></div>
+			</div>
+		</div>
+		<div class="sidebar-section internet">
+			<h3>Internet </h3>
+			<div class="internet-toggler showall-toggler">Hide</div>
+			<div class="none">
+				<div class="slider_container">
+					<h2>Speed: <span class="changingtext3" id="internet-slider-value"></span></h2>
+					<div class="slide_range_class" id="internet-slider"></div>
+				</div>
+				<div class="spacer"></div>
+			</div>
+		</div>
+		
+		<div class="sidebar-section nobottomborder">
 			<h3> Providers</h3>
-			<label class="label_check" for="checkbox-01"><input name="tv" id="checkbox-01" value="1" type="checkbox" checked /> DirecTV</label>
-			<label class="label_check" for="checkbox-02"><input name="phone" id="checkbox-02" value="1" type="checkbox" checked/> Dish Network</label>
-			<label class="label_check" for="checkbox-03"><input name="internet" id="checkbox-03" value="1" type="checkbox" checked/> Verizon</label>
-			<label class="label_check" for="checkbox-04"><input name="tv2" id="checkbox-04" value="1" type="checkbox" checked /> AT&T</label>
-			<label class="label_check" for="checkbox-05"><input name="phone2" id="checkbox-05" value="1" type="checkbox" checked/> Vonage</label>
-			<label class="label_check" for="checkbox-06"><input name="internet2" id="checkbox-06" value="1" type="checkbox" checked/> Cablevision</label>
+			<div class="providers-toggler showall-toggler">Hide</div>
+			<div class="none">
+				<div class="checkbox-container"><div id="checkbox-unlimitedus" class="custom_checkbox custom_on"></div><p>DirecTV</p></div>
+		      	<div class="checkbox-container"><div id="checkbox-unlimitedus" class="custom_checkbox custom_on"></div><p>Dish</p></div>
+		        <div class="checkbox-container"><div id="checkbox-unlimitedus" class="custom_checkbox custom_on"></div><p>Vonage</p></div>
+		      
+				<div class="spacer"></div>
+			</div>
 		</div>
-		<div class="sidebar-section questions nobottomborder">
-			<h3>More Filters</h3>
-			<label class="label_check" for="checkbox-100"><input name="tv" id="checkbox-100" value="1" type="checkbox" checked /> Show Hacker Packages</label>
-			<label class="label_check" for="checkbox-101"><input name="phone" id="checkbox-101" value="1" type="checkbox" checked/> Include Tax</label>
-		</div>
+		
 	</div>
   
-  	<div class="mainbar">
+  	<div class="mainbar main">
   		<div class="package">
   			<div class="package-top">
-  				Results displayed here, 100% GET based using single digit encoding per question in the prefs variable.
- 				Open all step 4's in a new window
- 				<a href="/buypackage?pid=1" target="_blank">Package ID 1</a>
- 
+  				<div class="package-header">
+  					<div class="company-div">
+  						<img src="{{STATIC_URL}}images/logo/directv.png"/>
+  						<h1>XTRA Choice</h1>
+  					</div>
+  					<div class="plussign">+</div>
+  					<div class="company-div">
+  						<img src="{{STATIC_URL}}images/logo/dish.png"/>
+  						<h1>Premium Package</h1>
+  					</div>
+  					<div class="plussign">+</div>
+  					<div class="company-div">
+  						<img src="{{STATIC_URL}}images/logo/comcast.png"/>
+  						<h1>Hi Speed Internet</h1>
+  					</div>
+  					<div class="match">
+  						<h2>A+</h2>
+  						<h3>Match Ranking</h3>
+  					</div>
+  					
+  					<div class="intro-text">
+  						<p>TV: Our top-of-the-line package, with everything you want in TV entertainment and sports. apply. Get the absolute best insports, movies, and entertainment with the ultimate Package!</p>
+  						<p>Internet: Boost to the fastest speed ever with Verizon boost.</p>
+  						<p>TV: Our top-of-the-line package, with everything you want in TV entertainment and sports. apply. Get the absolute best insports, movies, and entertainment with the ultimate Package!</p>
+  						<p>Internet: Boost to the fastest speed ever with Verizon boost.</p>
+  					</div>
+  					
+  					<div class="ratings">
+  						<div class="ratings-column">
+							<div class="individual-rating">
+								<p> HD Channels </p>
+								<div class="stars-sprite twostars"></div>
+							</div>
+							<div class="individual-rating">
+								<p> Sports Channels </p>
+								<div class="stars-sprite fourstars"></div>
+							</div>
+							<div class="individual-rating">
+								<p> Movie Channels </p>
+								<div class="stars-sprite fivestars"></div>
+							</div>
+						</div>
+						<div class="ratings-column">
+							<div class="individual-rating">
+								<p> Internet Speed </p>
+								<div class="stars-sprite fourstars"></div>
+							</div>
+							<div class="individual-rating">
+								<p> Phone Features </p>
+								<div class="stars-sprite threestars"></div>
+							</div>
+							<div class="individual-rating">
+								<p> Package Value </p>
+								<div class="stars-sprite fivestars"></div>
+							</div>
+						</div>
+  					</div>
+  					
+  					<div class="pricing">
+  						<div class="baseprice">
+  							<p>$29</p>
+  							<div class="cents">
+  								<p>99</p>
+  								<p class="price-divider">___</p>
+  								<p>Mo</p>
+  							</div>
+  						</div>
+  						<p class="addons">
+  							+ est $99 in add-ons
+  						</p>
+  					</div>
+  					<a class="btn btn-purple btn-large grabdeal" id="package_2">Grab This Deal</a>
+  					<div class="clear"></div>
+  				</div>
+
   			</div>
   			<div class="package-bottom">
   				<div class="package-bottom-content">
   					<div class="package-bottom-content-border">
-						<p>COntent</p>
-						<p>COntent</p>
-						<p>COntent</p>
-						<p>COntent</p>
-						<p>COntent</p>
-						<p>COntent</p>
-						<p>COntent</p>
-						<p>COntent</p>
+  						<div class="tab-container">
+  							<div class="tab-box active">TV Package Deals</div>
+  							<div class="tab-box">TV Ratings</div>
+  							<div class="tab-box">Comcast Internet</div>
+  							<div class="tab-box">Dish Phone</div>
+  						</div>	
+  						<div class="tab-content">
+  							<div class="tab-content-div tab-content-first">
+  								<table>
+  									<tr>
+  										<td class="checkmark">&#x2713;</td>
+  										<td>Value-packed package including all the top entertainment and news channels, plus all the major sports networks. (Reg. $54.99/mo)</td>
+  									</tr>
+  									<tr>
+  										<td class="checkmark">&#x2713;</td>
+  										<td>Get over 4,000 On Demand shows and movies at no extra charge, watch LIVE TV on your iPad®, enjoy Pandora and YouTube on your TV, and more.</td>
+  									</tr>
+  									<tr>
+  										<td class="checkmark">&#x2713;</td>
+  										<td>Value-packed package including all the top entertainment and news channels, plus all the major sports networks. (Reg. $54.99/mo)</td>
+  									</tr>
+  									<tr>
+  										<td class="checkmark">&#x2713;</td>
+  										<td>Get over 4,000 On Demand shows and movies at no extra charge, watch LIVE TV on your iPad®, enjoy Pandora and YouTube on your TV, and more.</td>
+  									</tr>
+  								</table>
+  							</div>
+  							<div class="tab-content-div">
+  								tv ratings
+  							</div>
+  							<div class="tab-content-div">
+  								comcast internet
+  							</div>
+  							<div class="tab-content-div">
+  								dish phone
+  							</div>
+  						
+  						</div>
+  						<div class="clear"></div>
 					</div>
   				</div>
   				<div class="package-bottom-tab">

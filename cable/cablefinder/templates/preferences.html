@@ -1,280 +1,11 @@
-{% extends "base.html" %}
-
-{% block headerlink%}
-<link href="{{STATIC_URL}}findpackage.css" rel="stylesheet" type="text/css" />
-<script>
-//This class stores all the question answers
-var Prefs = function Prefs() {
-	var zipcode = '12345';
-	var answers = [9,9,9,9,9,9,9,9,9,9];
-	
-	this.getanswer = function(question) {
-		return answers[question];
-	}
-	this.setanswer = function(question,answer) {
-		answers[question] = answer;
-	}
-	this.getallanswers = function() {
-		return answers;
-	}
-	this.getzipcode = function() {
-		return zipcode;
-	}
-}
-
-
-$(document).ready(function() {
-	//$(".progressbar .bar").css("width","60%");
-	var test = new Prefs();
-	var startquestion = $(".question").first().attr("id");
-	startquestion = parseInt(startquestion.charAt(startquestion.length-1));
-	var totalquestions = $(".question").length;
-	//Show First Question
-	$(".question").first().fadeIn();
-	var currentquestion = $(".question").first().attr("id");
-	currentquestion = parseInt(currentquestion.charAt(currentquestion.length-1));
-	
-	$(".question .answer_container p").click(function() {
-		//Update selection CSS
-		$(this).parent().children().removeClass("selected");
-		$(this).addClass("selected");
-		
-		//Get handler for question's div
-		var question = $(this).parent().parent();
-		//Handler for next question in the DOM
-		var nextq = question.next();
-
-		//Get question number and update prefs
-		var questionNumber = $(question).attr('id');
-		questionNumber = parseInt(questionNumber.charAt(questionNumber.length-1));
-		var answer = $(this).attr('id').charAt(2);
-		test.setanswer(questionNumber,answer);
-		
-		//Transition to next question
-		$(question).fadeOut('fast',function() {
-			if (nextq.attr("id")==="showresults") {
-				$("#showresults").fadeIn();
-				$(".forward").fadeOut();
-			} else {
-				$(nextq).fadeIn();
-			}
-			currentquestion = questionNumber+1;
-			console.log(currentquestion);
-		});
-		
-		//Miscellaneous
-		$("#answerarray").html("<p>"+test.getallanswers()+"</p>");
-		$(".back").fadeIn();
-		progress(startquestion,currentquestion,totalquestions);
-	});
-	$(".back").click(function() {
-		lastq = currentquestion - 1;
-		//If on the results button
-		if ($("#question"+lastq).next().attr("id") === "showresults") {
-			//Transition to next question
-			$("#showresults").fadeOut('fast',function() {
-				$("#question"+lastq).fadeIn();
-				currentquestion = lastq;
-				progress(startquestion,currentquestion-1,totalquestions);
-				if (currentquestion === 0) {
-					$(".back").fadeOut();
-				};
-			});
-		//If not on the results page
-		} else if (currentquestion > startquestion ) {
-			previousQuestion = currentquestion - 1;
-			//Transition to next question
-			$("#question"+currentquestion).fadeOut('fast',function() {
-				$("#question"+previousQuestion).fadeIn();
-				currentquestion = previousQuestion;
-				progress(startquestion,currentquestion-1,totalquestions);
-				if (currentquestion === startquestion) {
-					$(".back").fadeOut();
-				};
-			});
-		};
-		
-		$(".forward").fadeIn();
-	});
-	$(".forward").click(function() {
-		//If you were on the last question
-		if ($("#question"+currentquestion).next().attr("id") === "showresults") {
-			$("#question"+currentquestion).fadeOut('fast',function() {
-				$("#showresults").fadeIn();
-			});
-			$(this).fadeOut();
-			progress(startquestion,currentquestion,totalquestions);
-			currentquestion += 1;
-			
-		//If you were NOT on the last question
-		} else {
-			newQuestion = currentquestion + 1;
-			//Transition to next question
-			$("#question"+currentquestion).fadeOut('fast',function() {
-				$("#question"+newQuestion).fadeIn();
-				progress(startquestion,currentquestion,totalquestions);
-				currentquestion = newQuestion;
-			});		
-			$(".back").fadeIn();
-		};
-		
-	});
-	
-	var progress = function progress(startq,currentq,totalq) {
-		var prog = Math.round(100*((currentq-startq+1)/totalq));
-		var questions_complete = currentq-startq+1
-		var prog_string = prog+"%";
-		console.log(prog_string);
-		$(".progressbar .bar").css("width",prog_string);
-		$(".progressbar .bar").html(prog_string+" complete ("+questions_complete+"/"+totalq+")");
-	};
-	
-	$(".skipquestions").click(function() {
-		submit('list');
-	});
-	$("#showresults a").click(function() {
-		submit('list');
-	});
-	var submit = function(list) {
-		var questionanswers = String(test.getallanswers()).replace(/,/g,"");
-		var url= "findpackage?zipcode="+test.getzipcode()+"&prefs="+questionanswers;
-		document.location.href = url;
-	}
-
-});
-</script>
-<style>
-.content {
-	width: 980px;
-	background: white;
-	height: 320px;
-/* IE10 Consumer Preview */ 
-background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #EEEEEE 100%);
-
-/* Mozilla Firefox */ 
-background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #EEEEEE 100%);
-
-/* Opera */ 
-background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #EEEEEE 100%);
-
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #EEEEEE));
-
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #EEEEEE 100%);
-
-/* W3C Markup, IE10 Release Preview */ 
-background-image: linear-gradient(to top, #FFFFFF 0%, #EEEEEE 100%);
-
-}
-.progressbar {
-	width: 935px;
-	margin: 20px;
-	margin-top: 0px;
-	height: 20px;
-}
-.summary {
-	float: right;
-	width: 180px;
-	height: 200px;
-	margin-right: 40px;
-	background: #ddd;
-}
-.questions{
-	height: 170px;
-}
-.question_container {
-	width: 600px;
-	margin: 30px auto 0 auto;
-}
-
-.question_container .question_text {
-	font-size: 14px;
-	color: #666;
-	font-weight: 900;
-	text-shadow: 0 1px 1px #ddd;
-	padding-bottom: 15px;
-}
-.question_container .answer_container {
-	margin-bottom: 15px;
-	
-}
-.question_container .answer_container p {
-	font-size: 13px;
-	color: #777;
-	border:1px solid transparent;
-	font-weight: 900;
-	padding: 3px 0 3px 10px;
-	margin-right: 50px;
-	border-radius: 10px;
-}
-.question_container .answer_container p:hover {
-	background: #666;
-	color: #fff;
-	cursor: pointer;
-}
-
-.selected {
-	background: #eee;
-	border:1px solid #ddd;
-	color: #white;
-}
-.back {
-	display: none;
-	float: left;
-}
-.back:hover, .forward:hover {
-	cursor: pointer;
-}
-.forward {
-	float: right;
-}
-
-.nextbutton {
-	display: none;
-}
-.question {	
-	display: none;
-}
-.skipquestions {
-	float: right;
-	margin: 15px 25px;
-}
-.returnhome {
-	float: left;
-	margin: 15px 25px;
-}
-.returnhome a {
-	color:white;
-}
-#showresults .btn{
-	width: 200px;
-	margin: 40px 80px 0px 80px;
-}
-.advice {
-	clear:both;
-	text-align: center;
-	padding-bottom: 3px;
-	
-}
-</style>
-{% endblock %}
-{%block step2number%}progress-number-active{%endblock%}
-{%block step2text%}progress-text-active{%endblock%}
-{% block content %}
-	<div class="content">
+ <!-- 
+<div class="preferences">
 		<div class="returnhome btn btn-warning"><a href="/">Return Home</a></div>
 		<div class="skipquestions btn btn-warning">Continue to Results</div>
 		<p class="advice">These questions help customize and form the match score for all the available packages. You are welcome to skip this step. </p>
 		<div class="progress progress-info progressbar">
 			<div class="bar" style="width:0%"></div>
 		</div>
-		<!-- 
-<div class="summary">
-			<p>Your Selections</p>
-			<p id="answerarray"></p>
-		</div>
- -->
 		<div class="question_container">
 			<div class="questions">
 				<div id="question4" class="question">
@@ -285,7 +16,7 @@ background-image: linear-gradient(to top, #FFFFFF 0%, #EEEEEE 100%);
 					<p id="0_2">c. Mostly just e-mail and occasional web surfing </p>
 				</div>
 			</div>
-			<div id="question5" class="question">
+				<div id="question5" class="question">
 				<div class="question_text">Which of the following best describes what you want in a home phone service?</div>
 				<div class="answer_container">
 					<p id="1_0"> a. A premium, full-featured system and unlimited calling.</p>
@@ -326,11 +57,11 @@ background-image: linear-gradient(to top, #FFFFFF 0%, #EEEEEE 100%);
 				<div id="question9" class="question">
 					<div class="question_text">Which of the following programming options are important to you?</div>
 					<div class="answer_container">
-						<input type="checkbox">Sports
-						<input type="checkbox">Movies
-						<input type="checkbox">International/Bilingual
-						<input type="checkbox">On Demand
-						<input type="checkbox">Adult Entertainment
+						<input type="checkbox" />Sports
+						<input type="checkbox" />Movies
+						<input type="checkbox" />International/Bilingual
+						<input type="checkbox" />On Demand
+						<input type="checkbox" />Adult Entertainment
 						
 					</div>
 				</div>
@@ -341,7 +72,4 @@ background-image: linear-gradient(to top, #FFFFFF 0%, #EEEEEE 100%);
 		</div>
 
 	</div>
-{% endblock %}
-	
-	
-	
+ -->

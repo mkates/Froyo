@@ -15,6 +15,7 @@ from django.shortcuts import render
 #Step 1 landing page
 def index(request):
 	return render_to_response('index.html',context_instance=RequestContext(request))
+
 #Step 2 Choose preferences 
 def preferences(request):
 	elements = {}
@@ -98,10 +99,64 @@ def LatLongToWirelineProviders(latandlong):
 	return None
 	
 
+#############################################
+# Package Lookup ###############
+#############################################
 
+def packagelookup(request):
+	if request.method == 'GET':
+		tv = int(request.GET["tv"])
+		phone= int(request.GET["phone"])
+		internet = int(request.GET["internet"])
+		maxprice = int(request.GET["maxprice"])
+		zipcode = int(request.GET["zipcode"])
+		#providers = request.GET["providers"]
+		#TV Options
+		numbertv = request.GET["numbertv"]
+		numberhd = request.GET["numberhd"]
+		numberdvr = request.GET["numberdvr"]
+		hd = request.GET["hd"]
+		sports = request.GET["sports"]
+		movie = request.GET["movie"]
+		kids = request.GET["kids"]
+		multicultural = request.GET["multicultural"]
+		music = request.GET["music"]
+		news = request.GET["news"]
+		religion = request.GET["religion"]
+		
+		#Phone Options
+		phonequality = int(request.GET['phonequality'])
+		
+		#Internet Options
+		internetquality = int(request.GET['internetquality'])
 
+	packages = []
+	packagenumber = packageid(tv,phone,internet)
+	packages.append(packagenumber)
+	if packageid == 2:
+		phonerank(zipcode,maxprice,phonequality)
+	return HttpResponse(simplejson.dumps(packages));
 
+def packageid(tv,phone,internet):
+	if tv == 0 and phone == 1 and internet == 1:
+		return '6'
+	if tv == 1 and phone == 0 and internet == 1:
+		return '5'
+	if tv == 1 and phone == 1 and internet == 0:
+		return '4'
+	if tv == 0 and phone == 0 and internet == 1:
+		return '3'
+	if tv == 0 and phone == 1 and internet == 0:
+		return '2'
+	if tv == 1 and phone == 0 and internet == 0:
+		return '1'
+	return '7'
 
+def providers(zipcode):
+	
+	
+def phonerank(zipcode,maxprice,phonequality):
+	pass
 #############################################
 # Unused / Obsolete Functions ###############
 #############################################

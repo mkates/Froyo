@@ -1,0 +1,93 @@
+.preferences {
+	background: #fafafa;
+}
+.progressbar {
+	width: 800px;
+	margin: 20px;
+	margin-top: 0px;
+	height: 20px;
+}
+.summary {
+	float: right;
+	width: 180px;
+	height: 200px;
+	margin-right: 40px;
+	background: #ddd;
+}
+.questions{
+	height: 170px;
+}
+.question_container {
+	width: 600px;
+	margin: 30px auto 0 auto;
+}
+
+.question_container .question_text {
+	font-size: 14px;
+	color: #666;
+	font-weight: 900;
+	text-shadow: 0 1px 1px #ddd;
+	padding-bottom: 15px;
+}
+.question_container .answer_container {
+	margin-bottom: 15px;
+	
+}
+.question_container .answer_container p {
+	font-size: 13px;
+	color: #777;
+	border:1px solid transparent;
+	font-weight: 900;
+	padding: 3px 0 3px 10px;
+	margin-right: 50px;
+	border-radius: 10px;
+}
+.question_container .answer_container p:hover {
+	background: #666;
+	color: #fff;
+	cursor: pointer;
+}
+
+.selected {
+	background: #eee;
+	border:1px solid #ddd;
+	color: #white;
+}
+.back {
+	display: none;
+	float: left;
+}
+.back:hover, .forward:hover {
+	cursor: pointer;
+}
+.forward {
+	float: right;
+}
+
+.nextbutton {
+	display: none;
+}
+.question {	
+	display: none;
+}
+.skipquestions {
+	text-align: center;
+	margin: 0 auto;
+}
+.returnresults {
+	text-align: center;
+	margin: 10px auto;
+}
+.returnresults a {
+	color:white;
+}
+#showresults .btn{
+	width: 200px;
+	margin: 40px 0px 0px 180px;
+}
+.advice {
+	clear:both;
+	text-align: center;
+	padding-bottom: 3px;
+	
+}

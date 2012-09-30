@@ -13,6 +13,9 @@ urlpatterns = patterns('cablefinder.views',
 	url(r'^findpackage$','findpackage'),
 	url(r'^buypackage$','buypackage'),
 	
+	#Package Lookup
+	url(r'^packagelookup$','packagelookup'),
+	
 	url(r'^browse$', 'browse'),
 	url(r'^question/$','question'),
     #url(r'^polls/(?P<poll_id>\d+)/$', 'polls.views.detail'),

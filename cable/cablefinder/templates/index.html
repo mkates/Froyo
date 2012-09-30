@@ -16,10 +16,22 @@
 					$(this).removeClass("success")
 				}
 			});
+			$(".searchform").submit(function() {
+				if ($("#zip").val().length !== 5) {
+					$(".error").css("display","block");
+					console.log("here");
+					return false;
+				} 
+				return true;
+			});
+			
 		});
 	</script>
 
 	<style>
+		.error {
+			display: none;
+		}
 		.success {
 			border: 2px solid green;
 		}
@@ -74,7 +86,8 @@
 		<h2> Search, compare, and find the best satellit tv, cable, phone, and internet options in your area.
 		Create custom packages and find the best savings.</h2>
 		<div class="action">
-			<form class="searchform" action="preferences" method="GET">
+			<div class="error">Invalid Zip Code</div>
+			<form class="searchform" action="findpackage" method="GET">
 				<input class="text zipcode" type="text" maxlength="5" name="zipcode" id="zip" placeholder="Zipcode"/>
 					<div class="options">
 						<label class="label_check" for="checkbox-01"><input name="tv" id="checkbox-01" value="1" type="checkbox" checked /> TV</label>
